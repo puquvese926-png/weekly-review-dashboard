@@ -16,3 +16,41 @@
 - 本地访问：`http://127.0.0.1:8863/index.html`
 - 语法检查：`node --check app.js`
 - Codex 提示词工具箱：`C:\Users\HP\.claude\plugins\cache\openai-codex\codex\1.0.4\skills\gpt-5-4-prompting\`
+- GitHub 仓库：https://github.com/puquvese926-png/weekly-review-dashboard
+
+## Git 策略
+
+仓库已关联 GitHub。
+
+### AI 可以做的
+
+- 创建分支：`git checkout -b feature/task-xxx`
+- 提交代码：`git add <文件>` + `git commit -m "..."`
+- 查看状态和历史：`git status`、`git diff`、`git log`
+- 推送到远程：`git push origin <分支名>`
+- 分支间合并（解决冲突）
+
+### AI 不可以做的
+
+- 不直接修改 master/main 分支的代码（在 feature 分支上工作）
+- 不强制推送（`--force`）
+- 不删除远程分支
+- 不在未经确认的情况下合并 feature 分支到 master
+- 不用 `git reset --hard` 等破坏性命令
+
+### 提交信息格式
+
+```
+<type>: <简述>
+
+原因: <为什么改>
+```
+
+type: `feat` / `fix` / `style` / `refactor` / `chore`
+
+### 分支模型
+
+```
+master        ← 稳定分支
+  └── feature/task-xxx   ← 每个需求独立分支
+```
