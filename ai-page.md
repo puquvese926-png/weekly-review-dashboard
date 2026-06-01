@@ -1,0 +1,120 @@
+- generic [ref=e2]:
+  - complementary "主导航" [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: "3.0"
+      - generic [ref=e6]:
+        - heading "周复盘分析看板" [level=1] [ref=e7]
+        - paragraph [ref=e8]: 证据链优先 · 人工确认发布
+    - navigation "报表模块" [ref=e20]:
+      - button "汇报总览 本期概览、重点发现、分渠道复用经验和避雷区。" [ref=e230] [cursor=pointer]:
+        - generic [ref=e231]: 总
+        - generic [ref=e232]:
+          - strong [ref=e233]: 汇报总览
+          - generic [ref=e234]: 本期概览、重点发现、分渠道复用经验和避雷区。
+      - button "证据链 所有结论都从数据现象、假设和验证结果进入人工确认。" [ref=e235] [cursor=pointer]:
+        - generic [ref=e236]: 证
+        - generic [ref=e237]:
+          - strong [ref=e238]: 证据链
+          - generic [ref=e239]: 所有结论都从数据现象、假设和验证结果进入人工确认。
+      - button "长期验证 跨周追踪假设，成立后沉淀长期经验。" [ref=e240] [cursor=pointer]:
+        - generic [ref=e241]: 验
+        - generic [ref=e242]:
+          - strong [ref=e243]: 长期验证
+          - generic [ref=e244]: 跨周追踪假设，成立后沉淀长期经验。
+      - button "社群 社群互动、帖子质量和负责人总结。" [ref=e245] [cursor=pointer]:
+        - generic [ref=e246]: 群
+        - generic [ref=e247]:
+          - strong [ref=e248]: 社群
+          - generic [ref=e249]: 社群互动、帖子质量和负责人总结。
+      - button "社媒 围绕曝光、互动、内容形式和 Top 帖子做复盘。" [ref=e250] [cursor=pointer]:
+        - generic [ref=e251]: 媒
+        - generic [ref=e252]:
+          - strong [ref=e253]: 社媒
+          - generic [ref=e254]: 围绕曝光、互动、内容形式和 Top 帖子做复盘。
+      - button "KOL 围绕达人/账号、曝光、互动和 Top 帖子做复盘。" [ref=e255] [cursor=pointer]:
+        - generic [ref=e256]: KOL
+        - generic [ref=e257]:
+          - strong [ref=e258]: KOL
+          - generic [ref=e259]: 围绕达人/账号、曝光、互动和 Top 帖子做复盘。
+      - button "站外数据 站外曝光、数量表现和来源结构。" [ref=e260] [cursor=pointer]:
+        - generic [ref=e261]: 外
+        - generic [ref=e262]:
+          - strong [ref=e263]: 站外数据
+          - generic [ref=e264]: 站外曝光、数量表现和来源结构。
+      - button "AI分析工作台 生成分析包，导入 GPT 草稿，再交给负责人确认。" [ref=e265] [cursor=pointer]:
+        - generic [ref=e266]: AI
+        - generic [ref=e267]:
+          - strong [ref=e268]: AI分析工作台
+          - generic [ref=e269]: 生成分析包，导入 GPT 草稿，再交给负责人确认。
+      - button "数据质量 检查导入预检、缺失字段、重复链接和渠道识别。" [ref=e270] [cursor=pointer]:
+        - generic [ref=e271]: 质
+        - generic [ref=e272]:
+          - strong [ref=e273]: 数据质量
+          - generic [ref=e274]: 检查导入预检、缺失字段、重复链接和渠道识别。
+    - generic [ref=e9]:
+      - strong [ref=e275]: 当前状态
+      - generic [ref=e276]: 内置数据 · 2,532帖
+      - generic [ref=e277]: AI草稿 · 2026-05-27
+  - generic [ref=e10]:
+    - banner [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: AI分析工作台
+        - heading "AI分析工作台" [level=2] [ref=e278]
+        - paragraph [ref=e15]: 生成分析包，导入 GPT 草稿，再交给负责人确认。
+      - generic "全局操作" [ref=e16]:
+        - button "复盘周期 2026-05-18 — 2026-05-24" [ref=e279] [cursor=pointer]:
+          - generic [ref=e280]: 复盘周期
+          - generic [ref=e281]: 2026-05-18 — 2026-05-24
+        - button "内容批次周期 2026-05-01 — 2026-05-24" [ref=e282] [cursor=pointer]:
+          - generic [ref=e283]: 内容批次周期
+          - generic [ref=e284]: 2026-05-01 — 2026-05-24
+        - button "导入 Excel" [ref=e17] [cursor=pointer]
+        - button "恢复内置" [ref=e18] [cursor=pointer]
+        - button "返回顶部" [ref=e19] [cursor=pointer]
+      - generic [ref=e77]:
+        - generic [ref=e285]: 复盘周期 2026-05-18 ~ 2026-05-24
+        - generic [ref=e286]: 批次周期 2026-05-01 ~ 2026-05-24
+        - generic [ref=e287]: 内置数据 · 2,532帖
+        - generic [ref=e288]: AI草稿 · 2026-05-27
+        - radiogroup "版本切换" [ref=e289]:
+          - radio "工作版" [checked] [ref=e290] [cursor=pointer]
+          - radio "发布版" [ref=e291] [cursor=pointer]
+    - main [ref=e85]:
+      - generic [ref=e292]:
+        - generic [ref=e293]:
+          - generic [ref=e294]:
+            - heading "AI 分析" [level=3] [ref=e295]
+            - paragraph [ref=e296]: 导出结构化分析数据，交给 Codex 生成 AI 草稿后自动写回，不再需要手动复制粘贴。
+          - generic [ref=e297]: 请先导入Excel
+        - generic [ref=e298]: 当前仍是内置样例数据，正式分析包已锁定。请先导入本周 Excel，确认预检通过后再导出分析数据。
+      - generic [ref=e299]:
+        - generic [ref=e300]:
+          - generic [ref=e301]:
+            - heading "最近分析结果" [level=3] [ref=e302]
+            - paragraph [ref=e303]: AI 草稿生成后自动加载，进入总览、证据链和各渠道页面展示。
+          - generic [ref=e304]: 已生成
+        - generic [ref=e305]:
+          - generic [ref=e306]:
+            - generic [ref=e307]: AI 草稿
+            - generic [ref=e308]: 生成时间：2026-05-27
+          - generic [ref=e309]:
+            - article [ref=e310]:
+              - strong [ref=e311]: 总览草稿
+              - paragraph [ref=e312]: "2"
+              - paragraph [ref=e313]: 汇报总览中的 AI 思考
+            - article [ref=e314]:
+              - strong [ref=e315]: 假设草稿
+              - paragraph [ref=e316]: "5"
+              - paragraph [ref=e317]: 证据链中的 AI 假设
+            - article [ref=e318]:
+              - strong [ref=e319]: 渠道草稿
+              - paragraph [ref=e320]: "3"
+              - paragraph [ref=e321]: 社群/社媒/KOL 的 AI 分析
+            - article [ref=e322]:
+              - strong [ref=e323]: 待确认问题
+              - paragraph [ref=e324]: "5"
+              - paragraph [ref=e325]: 需要负责人判断的问题
+            - article [ref=e326]:
+              - strong [ref=e327]: 复用模板
+              - paragraph [ref=e328]: "4"
+              - paragraph [ref=e329]: 可复用经验和避雷区草稿

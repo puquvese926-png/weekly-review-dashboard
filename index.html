@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>周复盘数据看板</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero-card section-card">
+      <div class="hero-layout">
+        <div class="hero-main">
+          <h1>周复盘数据看板</h1>
+        </div>
+        <div class="hero-meta" id="hero-meta"></div>
+      </div>
+      <div class="hero-toolbar">
+        <div class="hero-nav">
+          <nav class="tab-strip" aria-label="看板模块导航" id="tab-strip">
+            <button class="tab-item is-active" type="button" data-view="overview">总览</button>
+            <button class="tab-item" type="button" data-view="community">社群</button>
+            <button class="tab-item" type="button" data-view="social">社媒</button>
+            <button class="tab-item" type="button" data-view="kol">KOL</button>
+            <button class="tab-item" type="button" data-view="offsite">站外数据</button>
+          </nav>
+        </div>
+        <section class="control-bar">
+          <div class="control-group control-group-scope">
+            <span class="control-label">渠道类型</span>
+            <div class="select-shell">
+              <select class="filter-select" id="scope-select" aria-label="渠道类型"></select>
+            </div>
+          </div>
+          <div class="control-group control-group-platform">
+            <span class="control-label">平台</span>
+            <div class="select-shell">
+              <select class="filter-select" id="platform-select" aria-label="平台"></select>
+            </div>
+          </div>
+          <div class="control-group control-group-granularity">
+            <span class="control-label">折线粒度</span>
+            <div class="segmented" id="granularity-toggle"></div>
+          </div>
+          <div class="control-group control-group-import">
+            <span class="control-label">数据导入</span>
+            <div class="import-actions">
+              <button class="import-btn" type="button" id="import-data-btn">导入 Excel/CSV</button>
+              <button class="import-btn is-ghost" type="button" id="reset-data-btn">恢复内置</button>
+            </div>
+            <input id="import-file-input" type="file" accept=".xlsx,.xls,.csv,text/csv" hidden>
+          </div>
+        </section>
+      </div>
+      <div class="hero-status" id="control-note"></div>
+    </header>
+
+    <main class="dashboard">
+      <section class="section-card animate-in" id="section-overview" data-analysis-section="overview">
+        <div class="section-head">
+          <div>
+            <h2>本周概览</h2>
+          </div>
+          <div class="goal-widget" id="goal-widget"></div>
+        </div>
+        <div class="metric-grid" id="metric-grid"></div>
+      </section>
+
+      <section class="section-card insight-section animate-in" id="section-insights" data-analysis-section="insights">
+        <div class="section-head">
+          <div>
+            <h2>重点发现</h2>
+          </div>
+        </div>
+        <div class="insight-grid" id="insight-grid"></div>
+        <div class="overview-channel-playbook" id="overview-channel-playbook"></div>
+      </section>
+
+      <section class="section-card animate-in" id="section-lifecycle" data-analysis-section="lifecycle">
+        <div class="section-head">
+          <div>
+            <h2>生命周期</h2>
+            <p class="section-subtitle">按自然月发布帖子分组：第1周=1-7日发布，第2周=8-14日发布，第3周=15-21日发布，第4周=22-月底发布。</p>
+          </div>
+        </div>
+        <div class="lifecycle-stack" id="lifecycle-stack"></div>
+        <div class="table-wrap">
+          <table class="data-table" id="lifecycle-table"></table>
+        </div>
+        <div class="chart-note lifecycle-formula-note">备注：曝光贡献率 = 批次本周曝光 ÷ 全部批次本周曝光；互动贡献率 = 批次本周总互动 ÷ 全部批次本周总互动。</div>
+      </section>
+
+      <section class="section-card animate-in" id="section-channel" data-analysis-section="channel">
+        <div class="section-head">
+          <div>
+            <h2>渠道表现</h2>
+          </div>
+        </div>
+        <div class="efficiency-stack">
+          <div class="sub-card efficiency-top">
+            <div class="sub-card-head">
+              <h3>渠道分布</h3>
+              <span class="sub-card-note">按当前筛选范围展示全渠道</span>
+            </div>
+            <div id="channel-matrix"></div>
+            <div id="channel-table"></div>
+          </div>
+          <div class="sub-card efficiency-bottom" id="section-content">
+            <div class="sub-card-head">
+              <h3>内容表现</h3>
+              <span class="sub-card-note">曝光 Top / 互动 Top / 互动率 Top / 高曝光低互动</span>
+            </div>
+            <div id="content-panels" class="content-panels"></div>
+          </div>
+          <div class="sub-card business-review-card">
+            <div class="sub-card-head">
+              <h3>业务复盘辅助</h3>
+              <span class="sub-card-note">变化原因 / 内容结构 / Top 5帖子复盘</span>
+            </div>
+            <div id="business-review-panels" class="business-review-panels"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card animate-in" id="section-offsite" data-analysis-section="offsite">
+        <div class="section-head">
+          <div>
+            <h2>站外数据</h2>
+          </div>
+        </div>
+        <div id="dtc-summary" class="dtc-summary"></div>
+        <div class="table-wrap">
+          <table class="data-table" id="dtc-table"></table>
+        </div>
+      </section>
+
+      <section class="section-card animate-in" id="section-quantity" data-analysis-section="quantity">
+        <div class="section-head">
+          <div>
+            <h2>数量表现</h2>
+          </div>
+        </div>
+        <div id="brand-voice"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="tooltip" id="tooltip" hidden></div>
+  <script src="./review-mock-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

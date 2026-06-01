@@ -1,0 +1,12 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]: 周复盘看板
+    - navigation "视图切换"
+    - generic [ref=e5]:
+      - generic [ref=e6]: 复盘周
+      - strong [ref=e7]: W22
+      - button "上一周" [ref=e8] [cursor=pointer]: <
+      - button "下一周" [ref=e9] [cursor=pointer]: ">"
+    - button "导入 Excel" [ref=e10] [cursor=pointer]
+    - button "恢复内置" [ref=e11] [cursor=pointer]
+  - main [ref=e12]

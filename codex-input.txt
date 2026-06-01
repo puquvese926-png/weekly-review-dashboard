@@ -1,0 +1,26 @@
+Modify file D:\projects\nail-attribution-console-demo\output\weekly-review-dashboard\3.0\app.js with 4 changes.
+
+Task 1: After deriveQuantityPerformance function and before buildLifecycleRows, insert 4 new functions:
+  - deriveProjectRows(poolPosts) - aggregates by projectKey
+  - deriveProductLineRows(poolPosts) - aggregates by productLine1
+  - deriveFunnelDistribution(poolPosts) - aggregates by funnelStage (excluding shequn channel)
+  - deriveCollabRequirementBreakdown(poolPosts) - aggregates by collabRequirement
+
+Task 2: In buildOverviewHighlights, after the 4th fact entry and before ]; insert 2 new facts:
+  - project dimension fact (uses deriveProjectRows)
+  - funnel structure fact (uses deriveFunnelDistribution)
+
+Task 3: In buildChannelProgramConclusions, in the non-community branch only, insert a 4th conclusion about funnel efficiency.
+
+Task 4: In buildAnalysisPackage facts object, after communityInteraction, insert 4 keys:
+  - projectBreakdown, productLineBreakdown, funnelDistribution, collabBreakdown
+
+CRITICAL: The exact JavaScript code for ALL 4 insertions is specified in the user message that triggered this Codex run.
+Read the original user request CAREFULLY. It contains complete, verbatim code blocks for each insertion point.
+Copy those code blocks EXACTLY as written - do not modify or paraphrase them.
+Pay special attention to template literals (backtick strings) in Tasks 2 and 3 - preserve them exactly.
+
+After all edits, run: node --check D:\projects\nail-attribution-console-demo\output\weekly-review-dashboard\3.0\app.js
+If syntax check fails, fix the issue and re-run until clean.
+
+Only modify the insertion points. Do not reformat or touch other parts of the file.

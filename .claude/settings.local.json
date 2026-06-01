@@ -1,0 +1,38 @@
+{
+  "showThinkingSummaries": true,
+  "showTurnDuration": true,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -Command \"(New-Object Media.SoundPlayer 'C:\\Windows\\Media\\Windows Notify.wav').PlaySync()\"",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "WebFetch(*)",
+      "WebSearch",
+      "Skill(*)",
+      "Agent(*)",
+      "mcp__*"
+    ],
+    "additionalDirectories": [
+      "d:\\projects\\nail-attribution-console-demo\\output\\weekly-review-dashboard",
+      "d:\\Microsoft VS Code\\projects\\nail-attribution-console-demo\\output\\weekly-review-dashboard",
+      "C:\\Users\\HP\\.claude"
+    ]
+  }
+}

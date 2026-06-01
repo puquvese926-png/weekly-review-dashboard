@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>周复盘数据看板 2.0</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-view="overview" data-theme="atlantic">
+  <div class="page-shell">
+    <header class="hero-card">
+      <div class="hero-topline">
+        <div class="hero-main">
+          <div class="hero-title-stack">
+            <span class="hero-kicker">品牌营销周复盘</span>
+            <h1>周复盘数据看板</h1>
+          </div>
+        </div>
+        <div class="hero-meta-shell">
+          <div class="hero-meta" id="hero-meta"></div>
+          <div class="hero-import-status" id="import-status" aria-live="polite">内置数据</div>
+        </div>
+      </div>
+
+      <div class="hero-nav-row">
+        <nav class="tab-strip" aria-label="看板模块导航" id="tab-strip">
+          <button class="tab-item is-active" type="button" data-view="overview">总览</button>
+          <button class="tab-item" type="button" data-view="lifecycle">生命周期</button>
+          <button class="tab-item" type="button" data-view="channel">渠道</button>
+          <button class="tab-item" type="button" data-view="content">内容</button>
+          <button class="tab-item" type="button" data-view="offsite">站外</button>
+          <button class="tab-item" type="button" data-view="voice">声量</button>
+        </nav>
+        <div class="hero-tools">
+          <div class="tool-block tool-block-theme">
+            <div class="theme-toggle" id="theme-toggle"></div>
+          </div>
+          <div class="tool-block tool-block-import">
+            <div class="import-actions">
+              <button class="import-btn" type="button" id="import-data-btn">导入 Excel/CSV</button>
+              <button class="import-btn is-ghost" type="button" id="reset-data-btn">恢复内置</button>
+            </div>
+            <input id="import-file-input" type="file" accept=".xlsx,.xls,.csv,text/csv" hidden>
+          </div>
+        </div>
+      </div>
+
+      <section class="control-bar" aria-label="全局控制">
+        <div class="control-row control-row-primary">
+          <div class="control-group control-group-time">
+            <label class="control-label" for="review-end-date">复盘结束日</label>
+            <input class="date-input" id="review-end-date" type="date">
+          </div>
+          <div class="control-group control-group-period">
+            <label class="control-label" for="review-period-select">复盘周期</label>
+            <select class="control-select" id="review-period-select" aria-label="复盘周期选择">
+              <option value="7">近 7 天</option>
+              <option value="14">近 14 天</option>
+              <option value="30">近 30 天</option>
+            </select>
+          </div>
+          <div class="control-group control-group-scope">
+            <label class="control-label" for="scope-select">渠道类型</label>
+            <select class="control-select" id="scope-select" aria-label="渠道类型选择"></select>
+          </div>
+          <div class="control-group control-group-platform">
+            <label class="control-label" for="platform-select">平台</label>
+            <select class="control-select control-select-wide" id="platform-select" aria-label="平台选择"></select>
+          </div>
+          <div class="control-group control-group-granularity">
+            <span class="control-label">折线粒度</span>
+            <div class="segmented" id="granularity-toggle"></div>
+          </div>
+        </div>
+      </section>
+      <div class="hero-status" id="control-note"></div>
+    </header>
+
+    <main class="dashboard">
+      <section class="view-section section-card animate-in is-active" id="section-overview" data-view-panel="overview">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">总览页</span>
+            <h2>本周概览</h2>
+          </div>
+          <div class="goal-widget" id="goal-widget"></div>
+        </div>
+        <div class="metric-grid" id="metric-grid"></div>
+        <div class="section-head compact-head">
+          <div>
+            <span class="section-eyebrow">发现页</span>
+            <h2>重点发现</h2>
+          </div>
+        </div>
+        <div class="insight-grid" id="insight-grid"></div>
+      </section>
+
+      <section class="view-section section-card animate-in" id="section-lifecycle" data-view-panel="lifecycle">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">生命周期页</span>
+            <h2>生命周期</h2>
+            <p class="section-subtitle">按最近30天发布帖子的发布时间倒推分组：第1周=近1-7天发布，第2周=近8-14天发布，第3周=近15-21天发布，第4周=近22-30天发布。</p>
+          </div>
+        </div>
+        <div class="module-kpi-grid" id="lifecycle-kpis"></div>
+        <div class="lifecycle-stack" id="lifecycle-stack"></div>
+        <div class="table-wrap">
+          <table class="data-table" id="lifecycle-table"></table>
+        </div>
+        <div class="chart-note lifecycle-formula-note">备注：曝光贡献率 = 批次本周曝光 ÷ 全部批次本周曝光；互动贡献率 = 批次本周总互动 ÷ 全部批次本周总互动。</div>
+      </section>
+
+      <section class="view-section section-card animate-in" id="section-channel" data-view-panel="channel">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">渠道页</span>
+            <h2>渠道表现</h2>
+          </div>
+        </div>
+        <div class="module-kpi-grid" id="channel-kpis"></div>
+        <div class="efficiency-stack">
+          <div class="sub-card efficiency-top">
+            <div class="sub-card-head">
+              <h3>渠道分布</h3>
+              <span class="sub-card-note">按当前筛选范围展示全渠道</span>
+            </div>
+            <div id="channel-matrix"></div>
+            <div id="channel-table"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view-section section-card animate-in" id="section-content" data-view-panel="content">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">内容页</span>
+            <h2>内容表现</h2>
+          </div>
+        </div>
+        <div class="module-kpi-grid" id="content-kpis"></div>
+        <div class="sub-card efficiency-bottom">
+          <div class="sub-card-head">
+            <h3>内容表现</h3>
+            <span class="sub-card-note">曝光 Top / 互动 Top / 互动率 Top / 高曝光低互动</span>
+          </div>
+          <div id="content-panels" class="content-panels"></div>
+        </div>
+        <div id="content-table"></div>
+      </section>
+
+      <section class="view-section section-card animate-in" id="section-offsite" data-view-panel="offsite">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">站外页</span>
+            <h2>站外数据</h2>
+          </div>
+        </div>
+        <div class="module-kpi-grid" id="offsite-kpis"></div>
+        <div id="dtc-summary" class="dtc-summary"></div>
+        <div class="table-wrap">
+          <table class="data-table" id="dtc-table"></table>
+        </div>
+      </section>
+
+      <section class="view-section section-card animate-in" id="section-voice" data-view-panel="voice">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">声量页</span>
+            <h2>声量表现</h2>
+          </div>
+        </div>
+        <div class="module-kpi-grid" id="voice-kpis"></div>
+        <div id="brand-voice"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="tooltip" id="tooltip" hidden></div>
+  <script src="./review-mock-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

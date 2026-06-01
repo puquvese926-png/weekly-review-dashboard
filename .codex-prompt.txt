@@ -1,0 +1,54 @@
+<task>
+  File: D:\projects\nail-attribution-console-demo\output\weekly-review-dashboard\3.0\app.js
+
+  Make four changes to this file:
+  
+  [1] Title column as clickable link
+    In renderDetail, replace the titleCell column. When row.link is truthy, show a clickable link truncated to 60 chars. When row.link is falsy, show "-".
+    Exact replacement:
+      const titleCell = row.link
+        ? `<a class="link-cell" href="${escapeHtml(row.link)}" target="_blank" rel="noopener">${escapeHtml(row.link.substring(0, 60))}</a>`
+        : "-";
+
+  [2] Fix filter dropdown lag
+    In handleStageInput or the filter-bar event delegation, find .detail-filter input/change handlers that call recompute() or renderPreservingScroll(). Remove those calls. Filters and sorting must only update the detail table DOM, not trigger a full render.
+
+  [3] Add buildNarrative(tabKey) function
+    Insert a new standalone function buildNarrative(tabKey) before the first render function (renderCohort). It returns HT ML for a narrative panel based on tabKey.
+
+    The function logic:
+    - Get data via deriveForScope for all/糣稢/日橙/KOL
+    - Compute WoW changes for exposure and interaction
+    - For tabKey === "cohort": build week breakdown, find top week, compare first-week exposure vs previous, check decay anomaly
+    - For tabKey === "channel": compare channel WoW, find best/worst, check exposure-interaction mismatch, list top 3 projects
+    - For tabKey === "ranking": check top 5 concentration, count quality posts, compare product lines
+    - For tabKey === "detail": show import audit stats, missing fields summary, date ranges; fallback message for sample data
+    - Each fact is one line in a section panel with heading "本周织愞"
+    - Color first sentence part green for positive words, red for negative, amber for missing
+
+    Reuse helper functions already in app.js: deriveForScope, safeWoW, formatCompact, formatPct, escapeHtml, buildWeekBreakdown, buildCohortMatrix, preprocessPosts, adjustReviewWindow, buildChannelRows, deriveProjectRows, diffMetrics, deriveProductLineRows, sum, safeRate, asText, formatInteger.
+
+    The output HTML structure:
+      <section class="panel" style="border-left:3px solid var(--blue);">
+        <div class="panel-head"><div class="panel-title"><h3>本呩织愞</h3></div></div>
+        <div style="font-size:13px;line-height:1.8;color:var(--ink);">
+          <p>{{ mapped lines }}</p>
+        </div>
+      </section>
+
+  [4] Insert buildNarrative call in each render function
+    In each of these four functions, prepend ${buildNarrative("takey")} at the very beginning of the returned HTML string (before the first <section class="panel">):
+      - renderCohort => ${buildNarrative("cohort")}
+      - renderChannelDiagnosis => ${buildNarrative("channel")}
+      - renderRanking => ${buildNarrative("ranking")}
+      - renderDetail => ${buildNarrative("detail")}
+
+  <verification_loop>
+    After applying all changes, run: node --check "D:\projects\nail-attribution-console-demo\output\weekly-review-dashboard\3.0\app.js"
+    Fix any syntax errors. Do not stop until node --check passes.
+  </verification_loop>
+
+  <action_safety>
+    Only change the four items described above. Do not reformat, refactor, or modify any other part of app.js.
+  </action_safety>
+</task>

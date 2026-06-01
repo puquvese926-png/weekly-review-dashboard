@@ -1,0 +1,1 @@
+var p = process.argv[1]; require("fs").writeFileSync("d:/projects/nail-attribution-console-demo/output/weekly-review-dashboard/.codex-prompt.txt", p, "utf8"); console.log("Written: " + p.length);

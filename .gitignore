@@ -1,0 +1,26 @@
+# 系统文件
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 依赖
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 临时文件
+*.tmp
+*.log
+.live-server.*
+
+# 敏感配置
+.env
+.env.local
+*.secret
+
+# OS
+.DS_Store

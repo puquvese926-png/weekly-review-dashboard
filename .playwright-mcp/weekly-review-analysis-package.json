@@ -1,0 +1,2305 @@
+{
+  "prompt": "请基于下面 JSON 做周复盘 AI 草稿。\n你的任务不是复述数据，而是帮助负责人判断哪些问题值得人工复盘、哪些说法证据不足、下一步要补什么信息。\n业务目标：这是一份内容与渠道周复盘，不存在投放、预算、加码投放等概念。输出对象是管理者和各渠道负责人。\n硬性规则：\n1. 只返回严格 JSON，不要 Markdown，不要解释文字。\n2. 如果 businessReady 为 false，请不要分析，直接返回 questionsForOwner 提醒先导入本周 Excel。\n3. 不要使用资源购买类表达，也不要提出追加资源类建议。\n4. report 是表现统计窗口，batch 是内容发布时间样本池，两者不是二选一。\n5. 社群没有曝光和互动率口径，不得写“曝光为0”或“互动率为0”。\n6. Top5 曝光占比低于 30% 时，不得写 Top 内容带动整体，只能写具备复盘价值。\n7. hypothesisDrafts.hypothesisId 必须使用输入 hypotheses 中已有 id。\n8. 不要推断数据包未提供的账号粉丝量、完播率、转化、内容文本、特殊运营背景。\n9. programConclusions 是程序已经自动生成的事实结论，不要在 AI 输出中机械复述。\n10. AI 的任务是提出更深层假设、可能解释路径、验证方式和负责人待确认问题。\n11. 如果某结论只需要排序、占比、Top 来源、Top5 占比或字段缺失即可得出，请不要把它包装成 AI 结论。\n12. 每条结论必须区分证据强度，在 conclusion 开头写【数据直接支撑】、【推断】或【数据不足】。\n13. hypothesis 必须可被数据或负责人补充信息推翻，优先使用“如果……那么……”表达；不要把已知结果改写成假设。\n14. validation 必须写清用于验证的指标、口径和反面证据；如果缺少字段，直接写缺什么，不要补脑。\n15. risk 必须包含反面检验：如果这条判断错了，最可能错在哪里。\n16. 如果数据包提供 interactionBreakdown、likes、comments、shares、saves，不要再让负责人确认哪类互动最高；AI 应直接引用已有拆分，只让负责人确认这些互动背后的内容机制。\n17. 不要把程序已经能算出的指标做成 ownerQuestion；ownerQuestion 只能问数据里没有的业务语境、内容判断或负责人归因。\n18. ownerQuestion 必须是负责人能回答的具体问题，尽量指向 Top 帖、内容主题、素材形式、发布时间、互动方式、负责人归属；不要写泛泛的“请确认原因”。\n19. 对社媒，优先分析平台角色分化、曝光入口和互动入口是否不同；不要分析缺链接内容的具体创意。\n20. 对 KOL，优先提出内容结构待验证假设，例如开箱、教程、做款、口播、产品露出方式，但必须标注需要负责人看原帖确认。\n21. 对社群，只围绕互动、Top 帖、社群名称、话题、提问方式、评论引导和负责人总结；不要和社媒、KOL按曝光口径横向比较。\n22. 对站外数据，只作为来源结构展示背景；没有内容链接、日期或 UTM 映射时，不得推断内容带动站外表现。\n23. 不要输出空泛动作，如优化、加强、持续关注、重点跟进。若要提出动作，必须包含对象、范围、验证周期、观察指标和停止或调整条件。\n24. 每个 channelDrafts 只保留该渠道最需要负责人判断的 1 个问题，不要堆指标摘要。\n25. 每个 playbookDrafts 只能写“待验证的复用方向”和“避雷点”，不能写成已验证经验。\n26. executiveDrafts 最多 2 条，hypothesisDrafts 只覆盖输入 hypotheses，channelDrafts 按社群、社媒、KOL 各 1 条，playbookDrafts 按社群、社媒、KOL、站外各 1 条。\n27. longTermHypotheses 是跨周假设池；AI 只能补充本周支持点、反证和待确认问题，不得自行宣布长期假设成立、失效或加入长期经验。\n输出字段写法：\n- phenomenon：只写数据现象和口径，不解释原因。\n- hypothesis：写一个可被推翻的业务假设。\n- validation：写支持证据、反面证据和缺失字段。\n- conclusion：用证据强度标签开头，再写对复盘有用的判断。\n- risk：写这条判断的限制和最可能的反面解释。\n- ownerQuestion：写负责人下一步需要补充的具体信息。\n请严格使用以下 JSON 结构：\n{\"executiveDrafts\":[{\"title\":\"\",\"phenomenon\":\"\",\"hypothesis\":\"\",\"validation\":\"\",\"conclusion\":\"\",\"risk\":\"\",\"ownerQuestion\":\"\"}],\"hypothesisDrafts\":[{\"hypothesisId\":\"\",\"title\":\"\",\"phenomenon\":\"\",\"hypothesis\":\"\",\"validation\":\"\",\"conclusion\":\"\",\"risk\":\"\",\"ownerQuestion\":\"\"}],\"channelDrafts\":[{\"channel\":\"\",\"title\":\"\",\"phenomenon\":\"\",\"hypothesis\":\"\",\"validation\":\"\",\"conclusion\":\"\",\"risk\":\"\",\"ownerQuestion\":\"\"}],\"playbookDrafts\":[{\"channel\":\"\",\"title\":\"\",\"reusableExperienceDraft\":\"\",\"pitfallDraft\":\"\",\"validationNeeded\":\"\",\"risk\":\"\",\"ownerQuestion\":\"\"}],\"questionsForOwner\":[]}\n当前数据包版本：3.0",
+  "analysisPackage": {
+    "version": "3.0",
+    "generatedAt": "2026-05-28",
+    "businessReady": true,
+    "boundary": "AI 只能生成草稿和待确认问题，最终口径必须由负责人确认。",
+    "analysisRules": [
+      "如果 businessReady 为 false，请停止分析并提示用户先导入本周 Excel。",
+      "report 是表现统计窗口，batch 是内容发布时间样本池，两者不是二选一。",
+      "lifecycleWeek 是生命周期样本周：只纳入该自然周发布的帖子，用于观察这些帖子发布后第1-4周表现。",
+      "社群没有曝光和互动率口径，只能按互动、帖子、社群名称和负责人总结分析。",
+      "Top5 曝光占比低于 30% 时，不得写 Top 内容带动整体，只能写具备复盘价值。",
+      "不得使用资源购买类表达；若来源名含相关词，只能作为来源名称引用，不得发散分析。",
+      "不要推断账号粉丝量、完播率、转化、内容文本、活动背景或置顶等数据包未提供的信息。",
+      "hypothesisDrafts.hypothesisId 必须使用 hypotheses 中已有 id，不得改写为 H1/H2。"
+    ],
+    "periods": {
+      "report": {
+        "start": "2026-05-18",
+        "end": "2026-05-24",
+        "role": "表现统计窗口：本期曝光、互动等表现均按此窗口计算。"
+      },
+      "batch": {
+        "start": "2026-05-01",
+        "end": "2026-05-24",
+        "role": "内容样本池：仅纳入此发布时间范围内的内容。"
+      },
+      "lifecycleWeek": {
+        "start": "2026-05-04",
+        "end": "2026-05-10",
+        "role": "生命周期样本周：只纳入此自然周发布的帖子，用于看发布后第1-4周表现。"
+      }
+    },
+    "dataSource": {
+      "sourceType": "imported-file",
+      "label": "用户导入Excel",
+      "businessReady": true,
+      "fileName": "品牌营销汇总分析 2026-05-25 18_22_52.xlsx",
+      "sheetName": "帖子详情表（日）",
+      "importedAt": "2026-05-28",
+      "quality": {
+        "totalRows": 20550,
+        "acceptedRows": 20148,
+        "skippedRows": 402,
+        "missingRequired": {
+          "statDate": 0,
+          "publishDate": 402,
+          "channelType": 0,
+          "channelName": 0
+        },
+        "missingRecommended": {
+          "owner": 15419,
+          "link": 6415
+        },
+        "duplicateLinks": 11198,
+        "channelDistribution": {
+          "KOL": 5576,
+          "社媒": 13783,
+          "社群": 789
+        },
+        "metricObservedRows": {
+          "exposure": 19323,
+          "interaction": 19512
+        },
+        "statDateRange": "2026-04-22 ~ 2026-05-24",
+        "publishDateRange": "2025-04-24 ~ 2026-05-25",
+        "note": "metricObservedRows 表示指标有值行数，不表示缺失为 0；missingRecommended 不会阻断导入，但会影响负责人归因和原帖复盘。"
+      }
+    },
+    "facts": {
+      "batchPostCount": 2532,
+      "reportMetrics": {
+        "exposure": 33545503,
+        "interaction": 1543762,
+        "interactionRate": 0.04601993894680906,
+        "interactionBreakdown": {
+          "total": 1543762,
+          "likes": 1352078,
+          "comments": 10022,
+          "shares": 56315,
+          "saves": 125348,
+          "other": 0,
+          "likesShare": 0.8758331919039334,
+          "commentsShare": 0.006491933342056612,
+          "sharesShare": 0.03647906866472941,
+          "savesShare": 0.08119645385752466,
+          "otherShare": 0
+        }
+      },
+      "nonCommunityChannels": [
+        {
+          "label": "Instagram",
+          "posts": 357,
+          "interaction": 508627,
+          "interactionShare": 0.32953731167288,
+          "interactionBreakdown": {
+            "total": 508627,
+            "likes": 432738,
+            "comments": 4476,
+            "shares": 37277,
+            "saves": 34136,
+            "other": 0,
+            "likesShare": 0.8507963596112672,
+            "commentsShare": 0.008800162004769704,
+            "sharesShare": 0.07328946359512964,
+            "savesShare": 0.06711401478883347,
+            "otherShare": 0
+          },
+          "exposure": 13139529,
+          "exposureShare": 0.3916927106444044
+        },
+        {
+          "label": "Facebook",
+          "posts": 392,
+          "interaction": 157243,
+          "interactionShare": 0.1018770837949591,
+          "interactionBreakdown": {
+            "total": 157243,
+            "likes": 113903,
+            "comments": 2777,
+            "shares": 7358,
+            "saves": 33205,
+            "other": 0,
+            "likesShare": 0.7243756478825767,
+            "commentsShare": 0.01766056358629637,
+            "sharesShare": 0.04679381594093219,
+            "savesShare": 0.2111699725901948,
+            "otherShare": 0
+          },
+          "exposure": 12354397,
+          "exposureShare": 0.3682877254814155
+        },
+        {
+          "label": "TikTok",
+          "posts": 285,
+          "interaction": 877161,
+          "interactionShare": 0.5683089530132988,
+          "interactionBreakdown": {
+            "total": 877161,
+            "likes": 805216,
+            "comments": 2652,
+            "shares": 11680,
+            "saves": 57614,
+            "other": 0,
+            "likesShare": 0.9179797095402098,
+            "commentsShare": 0.0030233902328078884,
+            "sharesShare": 0.013315685489892962,
+            "savesShare": 0.06568235477865524,
+            "otherShare": 0
+          },
+          "exposure": 7989107,
+          "exposureShare": 0.23815731724159867
+        },
+        {
+          "label": "pinterest",
+          "posts": 287,
+          "interaction": 427,
+          "interactionShare": 0.00027665151886219127,
+          "interactionBreakdown": {
+            "total": 427,
+            "likes": 34,
+            "comments": 0,
+            "shares": 0,
+            "saves": 393,
+            "other": 0,
+            "likesShare": 0.07962529274004684,
+            "commentsShare": 0,
+            "sharesShare": 0,
+            "savesShare": 0.9203747072599532,
+            "otherShare": 0
+          },
+          "exposure": 62470,
+          "exposureShare": 0.0018622466325814223
+        }
+      ],
+      "communityInteraction": {
+        "metricPolicy": {
+          "exposureAvailable": false,
+          "interactionRateAvailable": false,
+          "rule": "社群没有曝光口径，不得写曝光为0或互动率为0；只按互动量、Top帖子、社群名称和负责人总结复盘。"
+        },
+        "posts": 31,
+        "interaction": 304,
+        "topGroups": [
+          {
+            "label": "facebook",
+            "posts": 15,
+            "interaction": 304,
+            "interactionShare": 1,
+            "interactionBreakdown": {
+              "total": 304,
+              "likes": 187,
+              "comments": 117,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.6151315789473685,
+              "commentsShare": 0.3848684210526316,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          }
+        ]
+      },
+      "projectBreakdown": [
+        {
+          "label": "2026母亲节礼盒",
+          "posts": 24,
+          "exposure": 3954262,
+          "interaction": 591789,
+          "likes": 550168,
+          "comments": 1030,
+          "shares": 8004,
+          "saves": 32587,
+          "exposureShare": 0.5033716281172858,
+          "interactionShare": 0.6768199165796513,
+          "interactionRate": 0.14965852035095298
+        },
+        {
+          "label": "KOL品线推广",
+          "posts": 112,
+          "exposure": 2894493,
+          "interaction": 209826,
+          "likes": 189901,
+          "comments": 1329,
+          "shares": 2598,
+          "saves": 15998,
+          "exposureShare": 0.36846462221878234,
+          "interactionShare": 0.23997474744586655,
+          "interactionRate": 0.07249145187084577
+        },
+        {
+          "label": "2026美甲灯",
+          "posts": 9,
+          "exposure": 865818,
+          "interaction": 68389,
+          "likes": 59462,
+          "comments": 111,
+          "shares": 853,
+          "saves": 7963,
+          "exposureShare": 0.11021733418606357,
+          "interactionShare": 0.07821544042718905,
+          "interactionRate": 0.07898773183278703
+        },
+        {
+          "label": "2026dealbox&PD",
+          "posts": 21,
+          "exposure": 139044,
+          "interaction": 4342,
+          "likes": 3767,
+          "comments": 200,
+          "shares": 145,
+          "saves": 230,
+          "exposureShare": 0.017700092876986876,
+          "interactionShare": 0.0049658781724378894,
+          "interactionRate": 0.031227525099968356
+        },
+        {
+          "label": "2026SummerVoyage",
+          "posts": 3,
+          "exposure": 1935,
+          "interaction": 21,
+          "likes": 12,
+          "comments": 9,
+          "shares": 0,
+          "saves": 0,
+          "exposureShare": 0.0002463226008815167,
+          "interactionShare": 0.000024017374855180947,
+          "interactionRate": 0.010852713178294573
+        }
+      ],
+      "productLineBreakdown": [
+        {
+          "label": "未标记品线",
+          "posts": 2363,
+          "exposure": 25689951,
+          "interaction": 669395,
+          "likes": 548768,
+          "comments": 7343,
+          "shares": 44715,
+          "saves": 68570,
+          "exposureShare": 0.7658239913707658,
+          "interactionShare": 0.4336128237383742,
+          "interactionRate": 0.026056686523068882
+        },
+        {
+          "label": "彩胶",
+          "posts": 72,
+          "exposure": 4212077,
+          "interaction": 603969,
+          "likes": 560632,
+          "comments": 1232,
+          "shares": 8225,
+          "saves": 33880,
+          "exposureShare": 0.12556308963380278,
+          "interactionShare": 0.3912319386019348,
+          "interactionRate": 0.14338982881841902
+        },
+        {
+          "label": "构建美甲",
+          "posts": 5,
+          "exposure": 1598827,
+          "interaction": 112285,
+          "likes": 101240,
+          "comments": 127,
+          "shares": 1438,
+          "saves": 9480,
+          "exposureShare": 0.047661440640791704,
+          "interactionShare": 0.0727346572852551,
+          "interactionRate": 0.07022961208435935
+        },
+        {
+          "label": "配件",
+          "posts": 7,
+          "exposure": 865333,
+          "interaction": 68329,
+          "likes": 59409,
+          "comments": 107,
+          "shares": 851,
+          "saves": 7962,
+          "exposureShare": 0.025795797427750598,
+          "interactionShare": 0.04426135634897089,
+          "interactionRate": 0.07896266523985564
+        },
+        {
+          "label": "功能胶",
+          "posts": 10,
+          "exposure": 405534,
+          "interaction": 35031,
+          "likes": 31562,
+          "comments": 198,
+          "shares": 477,
+          "saves": 2794,
+          "exposureShare": 0.012089071968901464,
+          "interactionShare": 0.022691969357970982,
+          "interactionRate": 0.08638239950287768
+        },
+        {
+          "label": "彩胶初学者套装",
+          "posts": 10,
+          "exposure": 331012,
+          "interaction": 36544,
+          "likes": 34415,
+          "comments": 530,
+          "shares": 343,
+          "saves": 1256,
+          "exposureShare": 0.009867552142533084,
+          "interactionShare": 0.02367204271124694,
+          "interactionRate": 0.11040083138979856
+        },
+        {
+          "label": "配件,彩胶",
+          "posts": 5,
+          "exposure": 139645,
+          "interaction": 1275,
+          "likes": 1135,
+          "comments": 15,
+          "shares": 17,
+          "saves": 108,
+          "exposureShare": 0.004162853065580802,
+          "interactionShare": 0.0008259045111876053,
+          "interactionRate": 0.009130294675785026
+        },
+        {
+          "label": "穿戴甲",
+          "posts": 18,
+          "exposure": 131316,
+          "interaction": 5374,
+          "likes": 4919,
+          "comments": 126,
+          "shares": 37,
+          "saves": 292,
+          "exposureShare": 0.003914563451321627,
+          "interactionShare": 0.003481106543625248,
+          "interactionRate": 0.040924182887081544
+        },
+        {
+          "label": "配件,功能胶,构建美甲,彩胶",
+          "posts": 1,
+          "exposure": 68400,
+          "interaction": 3178,
+          "likes": 3034,
+          "comments": 33,
+          "shares": 10,
+          "saves": 101,
+          "exposureShare": 0.0020390214449907042,
+          "interactionShare": 0.0020586074796503607,
+          "interactionRate": 0.046461988304093566
+        },
+        {
+          "label": "配件,假指甲,构建美甲",
+          "posts": 1,
+          "exposure": 16600,
+          "interaction": 1188,
+          "likes": 940,
+          "comments": 23,
+          "shares": 25,
+          "saves": 200,
+          "exposureShare": 0.0004948502337258141,
+          "interactionShare": 0.0007695486739536276,
+          "interactionRate": 0.07156626506024097
+        },
+        {
+          "label": "假指甲",
+          "posts": 7,
+          "exposure": 12489,
+          "interaction": 1078,
+          "likes": 909,
+          "comments": 42,
+          "shares": 71,
+          "saves": 56,
+          "exposureShare": 0.00037230027524106583,
+          "interactionShare": 0.0006982941671060695,
+          "interactionRate": 0.08631595804307791
+        },
+        {
+          "label": "功能胶,构建美甲",
+          "posts": 1,
+          "exposure": 12100,
+          "interaction": 1104,
+          "likes": 700,
+          "comments": 27,
+          "shares": 60,
+          "saves": 317,
+          "exposureShare": 0.0003607040860290573,
+          "interactionShare": 0.0007151361414518559,
+          "interactionRate": 0.0912396694214876
+        },
+        {
+          "label": "配件,假指甲,功能胶,彩胶初学者套装",
+          "posts": 3,
+          "exposure": 11117,
+          "interaction": 1041,
+          "likes": 924,
+          "comments": 41,
+          "shares": 9,
+          "saves": 67,
+          "exposureShare": 0.0003314006053210769,
+          "interactionShare": 0.0006743267420755272,
+          "interactionRate": 0.0936403706035801
+        },
+        {
+          "label": "配件,功能胶,彩胶",
+          "posts": 4,
+          "exposure": 10440,
+          "interaction": 908,
+          "likes": 838,
+          "comments": 33,
+          "shares": 0,
+          "saves": 37,
+          "exposureShare": 0.0003112190626564759,
+          "interactionShare": 0.0005881735656143888,
+          "interactionRate": 0.08697318007662835
+        },
+        {
+          "label": "假指甲,功能胶,彩胶",
+          "posts": 3,
+          "exposure": 7900,
+          "interaction": 541,
+          "likes": 432,
+          "comments": 6,
+          "shares": 10,
+          "saves": 93,
+          "exposureShare": 0.0002355010148454176,
+          "interactionShare": 0.0003504426200411721,
+          "interactionRate": 0.06848101265822785
+        },
+        {
+          "label": "构建美甲,彩胶初学者套装",
+          "posts": 2,
+          "exposure": 6635,
+          "interaction": 549,
+          "likes": 510,
+          "comments": 12,
+          "shares": 3,
+          "saves": 24,
+          "exposureShare": 0.00019779104221510704,
+          "interactionShare": 0.0003556247659937218,
+          "interactionRate": 0.0827430293896006
+        },
+        {
+          "label": "甲油胶",
+          "posts": 1,
+          "exposure": 6579,
+          "interaction": 266,
+          "likes": 248,
+          "comments": 1,
+          "shares": 0,
+          "saves": 17,
+          "exposureShare": 0.0001961216679326585,
+          "interactionShare": 0.00017230635292227688,
+          "interactionRate": 0.04043167654658763
+        },
+        {
+          "label": "功能胶,彩胶",
+          "posts": 3,
+          "exposure": 4462,
+          "interaction": 487,
+          "likes": 460,
+          "comments": 7,
+          "shares": 2,
+          "saves": 18,
+          "exposureShare": 0.00013301335800509534,
+          "interactionShare": 0.0003154631348614618,
+          "interactionRate": 0.10914388166741372
+        },
+        {
+          "label": "彩胶,彩胶初学者套装",
+          "posts": 1,
+          "exposure": 3872,
+          "interaction": 321,
+          "likes": 300,
+          "comments": 5,
+          "shares": 1,
+          "saves": 15,
+          "exposureShare": 0.00011542530752929833,
+          "interactionShare": 0.00020793360634605593,
+          "interactionRate": 0.08290289256198347
+        },
+        {
+          "label": "配件,彩胶初学者套装",
+          "posts": 2,
+          "exposure": 2990,
+          "interaction": 161,
+          "likes": 125,
+          "comments": 1,
+          "shares": 7,
+          "saves": 28,
+          "exposureShare": 0.000089132662580734,
+          "interactionShare": 0.00010429068729506233,
+          "interactionRate": 0.05384615384615385
+        },
+        {
+          "label": "款式创作",
+          "posts": 3,
+          "exposure": 2545,
+          "interaction": 152,
+          "likes": 128,
+          "comments": 0,
+          "shares": 0,
+          "saves": 24,
+          "exposureShare": 0.00007586709908627693,
+          "interactionShare": 0.00009846077309844393,
+          "interactionRate": 0.05972495088408644
+        },
+        {
+          "label": "配件,构建美甲,彩胶初学者套装",
+          "posts": 2,
+          "exposure": 1590,
+          "interaction": 209,
+          "likes": 153,
+          "comments": 44,
+          "shares": 9,
+          "saves": 3,
+          "exposureShare": 0.00004739830551952076,
+          "interactionShare": 0.0001353835630103604,
+          "interactionRate": 0.13144654088050314
+        },
+        {
+          "label": "款式创作,假指甲,功能胶,彩胶",
+          "posts": 2,
+          "exposure": 1288,
+          "interaction": 43,
+          "likes": 37,
+          "comments": 3,
+          "shares": 0,
+          "saves": 3,
+          "exposureShare": 0.00003839560849631618,
+          "interactionShare": 0.000027854034494954532,
+          "interactionRate": 0.033385093167701864
+        },
+        {
+          "label": "假指甲,彩胶",
+          "posts": 2,
+          "exposure": 1279,
+          "interaction": 240,
+          "likes": 173,
+          "comments": 62,
+          "shares": 3,
+          "saves": 2,
+          "exposureShare": 0.000038127316200922667,
+          "interactionShare": 0.00015546437857649043,
+          "interactionRate": 0.18764659890539484
+        },
+        {
+          "label": "配件,假指甲,彩胶",
+          "posts": 2,
+          "exposure": 945,
+          "interaction": 70,
+          "likes": 64,
+          "comments": 4,
+          "shares": 2,
+          "saves": 0,
+          "exposureShare": 0.00002817069101631894,
+          "interactionShare": 0.000045343777084809704,
+          "interactionRate": 0.07407407407407407
+        },
+        {
+          "label": "配件,假指甲,彩胶初学者套装",
+          "posts": 1,
+          "exposure": 536,
+          "interaction": 19,
+          "likes": 18,
+          "comments": 0,
+          "shares": 0,
+          "saves": 1,
+          "exposureShare": 0.000015978296703435928,
+          "interactionShare": 0.000012307596637305492,
+          "interactionRate": 0.03544776119402985
+        },
+        {
+          "label": "构建美甲,彩胶,彩胶初学者套装",
+          "posts": 1,
+          "exposure": 41,
+          "interaction": 5,
+          "likes": 5,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "exposureShare": 0.0000012222204567926736,
+          "interactionShare": 0.0000032388412203435505,
+          "interactionRate": 0.12195121951219512
+        }
+      ],
+      "funnelDistribution": [
+        {
+          "label": "Interest",
+          "posts": 93,
+          "exposure": 4675645,
+          "interaction": 329370,
+          "likes": 280705,
+          "comments": 1464,
+          "shares": 9004,
+          "saves": 38197,
+          "postShare": 0.5502958579881657,
+          "exposureShare": 0.5952026032034413,
+          "interactionShare": 0.3766953693357595,
+          "interactionRate": 0.07044375695759622
+        },
+        {
+          "label": "Decision/Purchase/Repeat",
+          "posts": 31,
+          "exposure": 2482084,
+          "interaction": 494383,
+          "likes": 476784,
+          "comments": 560,
+          "shares": 1730,
+          "saves": 15309,
+          "postShare": 0.1834319526627219,
+          "exposureShare": 0.3159655744115754,
+          "interactionShare": 0.5654181825251868,
+          "interactionRate": 0.19918060790851558
+        },
+        {
+          "label": "Awareness",
+          "posts": 11,
+          "exposure": 623165,
+          "interaction": 45887,
+          "likes": 41949,
+          "comments": 322,
+          "shares": 677,
+          "saves": 2939,
+          "postShare": 0.0650887573964497,
+          "exposureShare": 0.07932797084151438,
+          "interactionShare": 0.0524802514276042,
+          "interactionRate": 0.0736353935153611
+        },
+        {
+          "label": "Consideration/Evaluation",
+          "posts": 33,
+          "exposure": 65901,
+          "interaction": 3257,
+          "likes": 2443,
+          "comments": 309,
+          "shares": 183,
+          "saves": 322,
+          "postShare": 0.1952662721893491,
+          "exposureShare": 0.008389098563665546,
+          "interactionShare": 0.003724980471586874,
+          "interactionRate": 0.04942261877664982
+        },
+        {
+          "label": "Loyalty/Advocacy",
+          "posts": 1,
+          "exposure": 8757,
+          "interaction": 1470,
+          "likes": 1429,
+          "comments": 24,
+          "shares": 6,
+          "saves": 11,
+          "postShare": 0.005917159763313609,
+          "exposureShare": 0.0011147529798033289,
+          "interactionShare": 0.0016812162398626663,
+          "interactionRate": 0.16786570743405277
+        }
+      ],
+      "collabBreakdown": [
+        {
+          "label": "未标记合作要求",
+          "posts": 2363,
+          "exposure": 25689951,
+          "interaction": 669395,
+          "likes": 548768,
+          "comments": 7343,
+          "shares": 44715,
+          "saves": 68570,
+          "postShare": 0.9332543443917851,
+          "exposureShare": 0.7658239913707658,
+          "interactionShare": 0.4336128237383742,
+          "interactionRate": 0.026056686523068882
+        },
+        {
+          "label": "推广帖;TKS挂车;商用授权;社媒转发授权",
+          "posts": 41,
+          "exposure": 2517785,
+          "interaction": 495552,
+          "likes": 477749,
+          "comments": 613,
+          "shares": 1752,
+          "saves": 15438,
+          "postShare": 0.016192733017377565,
+          "exposureShare": 0.07505581299526198,
+          "interactionShare": 0.3210028488847374,
+          "interactionRate": 0.1968206181226753
+        },
+        {
+          "label": "推广帖;社媒挂链",
+          "posts": 12,
+          "exposure": 2045987,
+          "interaction": 124131,
+          "likes": 97687,
+          "comments": 206,
+          "shares": 6497,
+          "saves": 19741,
+          "postShare": 0.004739336492890996,
+          "exposureShare": 0.06099139428614321,
+          "interactionShare": 0.08040811990449305,
+          "interactionRate": 0.06067047346830649
+        },
+        {
+          "label": "推广帖;PR送礼",
+          "posts": 9,
+          "exposure": 1695357,
+          "interaction": 109817,
+          "likes": 101033,
+          "comments": 149,
+          "shares": 1276,
+          "saves": 7359,
+          "postShare": 0.0035545023696682463,
+          "exposureShare": 0.050539024560162356,
+          "interactionShare": 0.07113596525889354,
+          "interactionRate": 0.06477514765326713
+        },
+        {
+          "label": "推广帖",
+          "posts": 12,
+          "exposure": 499579,
+          "interaction": 48721,
+          "likes": 41783,
+          "comments": 311,
+          "shares": 787,
+          "saves": 5840,
+          "postShare": 0.004739336492890996,
+          "exposureShare": 0.014892577404488464,
+          "interactionShare": 0.03155991661927162,
+          "interactionRate": 0.09752411530508688
+        },
+        {
+          "label": "推广帖;社媒挂链;商用授权;社媒转发授权",
+          "posts": 62,
+          "exposure": 437288,
+          "interaction": 15995,
+          "likes": 14393,
+          "comments": 369,
+          "shares": 182,
+          "saves": 1051,
+          "postShare": 0.02448657187993681,
+          "exposureShare": 0.01303566680755987,
+          "interactionShare": 0.010361053063879017,
+          "interactionRate": 0.036577724520224654
+        },
+        {
+          "label": "推广帖;商用授权;社媒转发授权",
+          "posts": 3,
+          "exposure": 329100,
+          "interaction": 38363,
+          "likes": 31960,
+          "comments": 105,
+          "shares": 677,
+          "saves": 5621,
+          "postShare": 0.001184834123222749,
+          "exposureShare": 0.009810554934889484,
+          "interactionShare": 0.024850333147207925,
+          "interactionRate": 0.11656943178365238
+        },
+        {
+          "label": "推广帖;内容授权",
+          "posts": 1,
+          "exposure": 263300,
+          "interaction": 34445,
+          "likes": 32700,
+          "comments": 430,
+          "shares": 213,
+          "saves": 1102,
+          "postShare": 0.00039494470774091627,
+          "exposureShare": 0.007849040153012462,
+          "interactionShare": 0.022312377166946718,
+          "interactionRate": 0.13082035700721611
+        },
+        {
+          "label": "推广帖;TKS挂车;社媒转发授权;商用授权",
+          "posts": 14,
+          "exposure": 33257,
+          "interaction": 4893,
+          "likes": 4163,
+          "comments": 166,
+          "shares": 170,
+          "saves": 394,
+          "postShare": 0.005529225908372828,
+          "exposureShare": 0.0009913996519891205,
+          "interactionShare": 0.0031695300182281983,
+          "interactionRate": 0.14712692064828456
+        },
+        {
+          "label": "推广帖;TKS挂车",
+          "posts": 5,
+          "exposure": 9966,
+          "interaction": 262,
+          "likes": 218,
+          "comments": 1,
+          "shares": 5,
+          "saves": 38,
+          "postShare": 0.0019747235387045812,
+          "exposureShare": 0.00029708900176575085,
+          "interactionShare": 0.00016971527994600203,
+          "interactionRate": 0.026289383905277946
+        },
+        {
+          "label": "PR送礼",
+          "posts": 2,
+          "exposure": 9000,
+          "interaction": 788,
+          "likes": 478,
+          "comments": 271,
+          "shares": 10,
+          "saves": 29,
+          "postShare": 0.0007898894154818325,
+          "exposureShare": 0.0002682922953935137,
+          "interactionShare": 0.0005104413763261436,
+          "interactionRate": 0.08755555555555555
+        },
+        {
+          "label": "推广帖;社媒挂链;社媒转发授权",
+          "posts": 5,
+          "exposure": 8262,
+          "interaction": 739,
+          "likes": 634,
+          "comments": 49,
+          "shares": 16,
+          "saves": 40,
+          "postShare": 0.0019747235387045812,
+          "exposureShare": 0.00024629232717124556,
+          "interactionShare": 0.00047870073236677674,
+          "interactionRate": 0.08944565480513193
+        },
+        {
+          "label": "推广帖;社媒挂链;社媒转发授权;商用授权",
+          "posts": 2,
+          "exposure": 6664,
+          "interaction": 661,
+          "likes": 512,
+          "comments": 9,
+          "shares": 15,
+          "saves": 125,
+          "postShare": 0.0007898894154818325,
+          "exposureShare": 0.00019865553961137503,
+          "interactionShare": 0.00042817480932941736,
+          "interactionRate": 0.09918967587034815
+        },
+        {
+          "label": "推广帖;内容授权;TKS挂车",
+          "posts": 1,
+          "exposure": 7,
+          "interaction": 0,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "saves": 0,
+          "postShare": 0.00039494470774091627,
+          "exposureShare": 2.0867178530606622e-7,
+          "interactionShare": 0,
+          "interactionRate": 0
+        }
+      ]
+    },
+    "programConclusions": {
+      "role": "以下为程序自动聚合、排序和阈值规则可得出的结论，AI 不需要复述，只能基于这些事实提出更深层假设和待确认问题。",
+      "overview": [
+        {
+          "title": "渠道结构",
+          "body": "曝光优先看 Instagram，贡献 39.2% 曝光；互动优先看 TikTok，贡献 56.8% 互动。这里是程序聚合事实，不解释原因。"
+        },
+        {
+          "title": "Top 内容边界",
+          "body": "Top5 帖子曝光占比 19.3%。低于 30%，只能说明 Top 内容具备复盘价值，不能写成 Top 内容带动整体。"
+        },
+        {
+          "title": "社媒与 KOL 的复盘入口",
+          "body": "社媒 Top 来源：Facebook；KOL Top 来源：TikTok。进入各渠道页查看 Top 帖、生命周期和负责人总结。"
+        },
+        {
+          "title": "数据质量边界",
+          "body": "导入有效行 20,148，跳过 402；负责人缺失 15,419，链接缺失 6,415。负责人归因和原帖判断必须人工补充。"
+        },
+        {
+          "title": "项目维度",
+          "body": "项目维度 Top 为 2026母亲节礼盒，曝光 395.4万，互动 59.2万，样本 24 帖。项目维度只做聚合排序，不自动解释项目效果。"
+        },
+        {
+          "title": "漏斗结构",
+          "body": "非社群漏斗 Top 为 Interest，曝光占比 59.5%，互动率 7.0%。该结构只说明内容分布和表现入口，不代表转化效果。"
+        }
+      ],
+      "channels": [
+        {
+          "channel": "社群",
+          "conclusions": [
+            {
+              "title": "互动结构",
+              "body": "本期社群样本 31 帖，总互动 304。Top 来源为 facebook，Top5 帖互动占比 70.4%。"
+            },
+            {
+              "title": "生命周期样本",
+              "body": "当前发帖周样本 11 帖，第1周 互动 612，贡献 98.4%。生命周期互动和本期互动不是同一统计窗口，不能直接相加。"
+            },
+            {
+              "title": "人工复盘入口",
+              "body": "程序只能识别互动集中和 Top 帖链接，不能判断话题为什么有效；负责人需要补充话题、提问方式、评论引导和实际负责人。"
+            }
+          ]
+        },
+        {
+          "channel": "社媒",
+          "conclusions": [
+            {
+              "title": "来源结构",
+              "body": "社媒 本期样本 2,291 帖，曝光 2263.7万，互动 35.8万。曝光 Top 来源为 Facebook，互动 Top 来源为 Instagram。"
+            },
+            {
+              "title": "Top 内容边界",
+              "body": "Top5 曝光占比 8.4%。低于 30%，只能作为复盘入口，不能写成带动整体。"
+            },
+            {
+              "title": "生命周期入口",
+              "body": "当前发帖周样本 1,029 帖，第2周 曝光 1170.0万，互动 18.8万。这只说明该发帖周的释放节奏，不代表所有内容通用规律。"
+            },
+            {
+              "title": "漏斗效率",
+              "body": "暂无漏斗层级数据，不能判断漏斗效率。"
+            }
+          ]
+        },
+        {
+          "channel": "KOL",
+          "conclusions": [
+            {
+              "title": "来源结构",
+              "body": "KOL 本期样本 210 帖，曝光 1090.8万，互动 118.6万。曝光 Top 来源为 TikTok，互动 Top 来源为 TikTok。"
+            },
+            {
+              "title": "Top 内容边界",
+              "body": "Top5 曝光占比 59.3%。可进入重点拆解，但仍不能替代负责人判断原因。"
+            },
+            {
+              "title": "生命周期入口",
+              "body": "当前发帖周样本 167 帖，第3周 曝光 794.8万，互动 90.4万。这只说明该发帖周的释放节奏，不代表所有内容通用规律。"
+            },
+            {
+              "title": "漏斗效率",
+              "body": "KOL 漏斗 Top 为 Interest，曝光 467.6万，互动 32.9万，互动率 7.0%。漏斗效率只能说明曝光和互动承接差异，不能直接写成转化结果。"
+            }
+          ]
+        }
+      ],
+      "playbookSeeds": [
+        {
+          "channel": "社群",
+          "reuse": "复盘入口是 Top 社群和 Top 帖。Top 来源：facebook；Top 帖互动 61。",
+          "risk": "程序不能判断话题好在哪里，只能提示负责人补充话题、互动方式和实际负责人。"
+        },
+        {
+          "channel": "社媒",
+          "reuse": "复盘入口是 Top 来源和 Top 帖。Top 来源：Facebook；Top 内容：facebook 内容。",
+          "risk": "程序只排序和聚合，不能判断创意、脚本、达人类型或平台机制原因。"
+        },
+        {
+          "channel": "KOL",
+          "reuse": "复盘入口是 Top 来源和 Top 帖。Top 来源：TikTok；Top 内容：2026母亲节礼盒 · 开箱;口播。",
+          "risk": "程序只排序和聚合，不能判断创意、脚本、达人类型或平台机制原因。"
+        },
+        {
+          "channel": "站外数据",
+          "reuse": "只展示站外来源结构。Top 来源：FB 来源 US 站，数量 78.8万。",
+          "risk": "站外没有与具体内容链接映射时，不进入内容原因判断。"
+        }
+      ]
+    },
+    "hypotheses": [
+      {
+        "id": "interaction-gap",
+        "title": "曝光贡献和互动贡献是否错位",
+        "phenomenon": "TikTok 的曝光贡献和互动贡献差异最大。",
+        "hypothesis": "如果某渠道曝光占比高但互动占比低，需要复盘内容承接和互动动机。",
+        "validation": "曝光占比 23.8%，互动占比 56.8%，差值 +33.0 pct。",
+        "result": "支持：存在明显贡献错位。",
+        "channel": "总体",
+        "risk": "互动口径受平台机制影响，不能跨平台直接判定优劣。"
+      },
+      {
+        "id": "community-interaction",
+        "title": "社群互动是否集中在少数社群或帖子",
+        "phenomenon": "facebook 是社群互动最高来源。",
+        "hypothesis": "如果社群 Top5 帖子贡献较高，应让负责人复盘具体话题和互动方式。",
+        "validation": "社群 Top5 帖子互动占比 70.4%；社群样本 31 帖。",
+        "result": "支持：社群互动集中在少数内容。",
+        "channel": "社群",
+        "risk": "社群样本量较小，结论应围绕互动集中度保持保守。"
+      },
+      {
+        "id": "social-kol-top-posts",
+        "title": "社媒和 KOL 是否能从 Top 帖子提炼复用经验",
+        "phenomenon": "社媒样本 2,291 帖，KOL样本 210 帖。",
+        "hypothesis": "如果 Top 帖子在曝光或互动上形成明显贡献，可以由负责人总结内容结构并沉淀复用经验。",
+        "validation": "社媒 Top来源 Facebook；KOL Top来源 TikTok。",
+        "result": "支持：已有 Top 帖子可进入人工复盘。",
+        "channel": "社媒/KOL",
+        "risk": "程序只排序和聚合，不替代负责人判断内容好在哪里。"
+      },
+      {
+        "id": "data-quality",
+        "title": "数据质量是否足以支撑本期结论",
+        "phenomenon": "导入文件 品牌营销汇总分析 2026-05-25 18_22_52.xlsx，Excel明细行 20,550，有效行数 20,148，跳过行数 402。",
+        "hypothesis": "如果缺失必填字段过多，结论应标注数据风险。",
+        "validation": "重复链接 11,198；统计日期 2026-04-22 ~ 2026-05-24；发布时间 2025-04-24 ~ 2026-05-25；建议字段缺失：负责人 15,419，帖子链接 6,415。",
+        "result": "支持：当前导入数据可用于生成草稿，但最终结论仍需负责人确认。",
+        "channel": "数据质量",
+        "risk": "缺失 发布时间 或 统计日期 的行不会被兜底纳入。"
+      }
+    ],
+    "longTermHypotheses": [
+      {
+        "id": "kol-tiktok-primary",
+        "title": "KOL 是否长期由 TikTok 贡献主要表现",
+        "channel": "KOL",
+        "status": "observing",
+        "statusLabel": "观察中",
+        "supportCount": 1,
+        "refuteCount": 0,
+        "insufficientCount": 0,
+        "supportTarget": 6,
+        "latestRecord": {
+          "reportStartDate": "2026-05-18",
+          "reportEndDate": "2026-05-24",
+          "result": "support",
+          "evidence": "TikTok 曝光占比 71.2%，互动占比 73.6%，KOL 样本 210 帖。",
+          "counterEvidence": ""
+        },
+        "boundary": "AI 只能补充本周支持点、反证和待确认问题；是否加入长期经验由负责人确认。"
+      },
+      {
+        "id": "kol-top-content-concentration",
+        "title": "KOL Top 内容是否能长期作为复盘样本",
+        "channel": "KOL",
+        "status": "observing",
+        "statusLabel": "观察中",
+        "supportCount": 1,
+        "refuteCount": 0,
+        "insufficientCount": 0,
+        "supportTarget": 6,
+        "latestRecord": {
+          "reportStartDate": "2026-05-18",
+          "reportEndDate": "2026-05-24",
+          "result": "support",
+          "evidence": "KOL Top5 曝光占比 59.3%，Top5 互动占比 68.2%，样本 210 帖。",
+          "counterEvidence": ""
+        },
+        "boundary": "AI 只能补充本周支持点、反证和待确认问题；是否加入长期经验由负责人确认。"
+      },
+      {
+        "id": "community-top-interaction",
+        "title": "社群互动是否长期集中在 Top 帖",
+        "channel": "社群",
+        "status": "observing",
+        "statusLabel": "观察中",
+        "supportCount": 1,
+        "refuteCount": 0,
+        "insufficientCount": 0,
+        "supportTarget": 6,
+        "latestRecord": {
+          "reportStartDate": "2026-05-18",
+          "reportEndDate": "2026-05-24",
+          "result": "support",
+          "evidence": "社群 Top5 互动占比 70.4%，总互动 304，样本 31 帖。",
+          "counterEvidence": ""
+        },
+        "boundary": "AI 只能补充本周支持点、反证和待确认问题；是否加入长期经验由负责人确认。"
+      },
+      {
+        "id": "social-platform-role-split",
+        "title": "社媒是否长期存在曝光与互动角色分化",
+        "channel": "社媒",
+        "status": "observing",
+        "statusLabel": "观察中",
+        "supportCount": 1,
+        "refuteCount": 0,
+        "insufficientCount": 0,
+        "supportTarget": 6,
+        "latestRecord": {
+          "reportStartDate": "2026-05-18",
+          "reportEndDate": "2026-05-24",
+          "result": "support",
+          "evidence": "曝光最高为 Facebook（54.2%），互动最高为 Instagram（54.7%）。",
+          "counterEvidence": "曝光和互动主要由同一平台贡献，或差异不足，本周不支持角色分化假设。"
+        },
+        "boundary": "AI 只能补充本周支持点、反证和待确认问题；是否加入长期经验由负责人确认。"
+      }
+    ],
+    "channelSummaries": [
+      {
+        "channel": "社群",
+        "metricPolicy": {
+          "exposureAvailable": false,
+          "interactionRateAvailable": false,
+          "rule": "社群没有曝光口径，不得写曝光为0或互动率为0；只按互动量、Top帖子、社群名称和负责人总结复盘。"
+        },
+        "posts": 31,
+        "interaction": 304,
+        "lifecycleMethodology": {
+          "sample": "当前渠道下，只纳入发帖周 2026-05-04 ~ 2026-05-10 的帖子，共 11 帖。",
+          "selectionRule": "默认取复盘自然周往前两周；可切换到其他发帖自然周。",
+          "metric": "只汇总互动。",
+          "calculation": "每个生命周期窗口用统计日期快照做累计差分：窗口结束累计值减去窗口前一日累计值；未走完的后续周按已有快照计算，不做外推。",
+          "windows": [
+            "第1周=发布后1-7天",
+            "第2周=发布后8-14天",
+            "第3周=发布后15-21天",
+            "第4周=发布后22-28天"
+          ],
+          "note": "生命周期窗口看的是发帖后的第1-4周，不是自然周走势。"
+        },
+        "lifecycleRows": [
+          {
+            "label": "第1周",
+            "window": "发布后1-7天",
+            "posts": 11,
+            "interaction": 612,
+            "interactionShare": 0.9839228295819936,
+            "avgInteraction": 55.63636363636363,
+            "diagnosis": "互动集中"
+          },
+          {
+            "label": "第2周",
+            "window": "发布后8-14天",
+            "posts": 4,
+            "interaction": 10,
+            "interactionShare": 0.01607717041800643,
+            "avgInteraction": 2.5,
+            "diagnosis": "低贡献"
+          },
+          {
+            "label": "第3周",
+            "window": "发布后15-21天",
+            "posts": 0,
+            "interaction": 0,
+            "interactionShare": 0,
+            "avgInteraction": 0,
+            "diagnosis": "无数据"
+          },
+          {
+            "label": "第4周",
+            "window": "发布后22-28天",
+            "posts": 0,
+            "interaction": 0,
+            "interactionShare": 0,
+            "avgInteraction": 0,
+            "diagnosis": "无数据"
+          }
+        ],
+        "topGroups": [
+          {
+            "label": "facebook",
+            "posts": 15,
+            "interaction": 304,
+            "interactionShare": 1,
+            "interactionBreakdown": {
+              "total": 304,
+              "likes": 187,
+              "comments": 117,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.6151315789473685,
+              "commentsShare": 0.3848684210526316,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          }
+        ],
+        "topPosts": [
+          {
+            "id": "imp-2115703046",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1917097835676562/",
+            "owner": "未知",
+            "publishDate": "2026-05-18",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 61,
+              "total": 61,
+              "likes": 43,
+              "comments": 18,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.7049180327868853,
+              "commentsShare": 0.29508196721311475,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          },
+          {
+            "id": "imp-1898886746",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1918839712169041/",
+            "owner": "未知",
+            "publishDate": "2026-05-20",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 50,
+              "total": 50,
+              "likes": 11,
+              "comments": 39,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.22,
+              "commentsShare": 0.78,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          },
+          {
+            "id": "imp-964069334",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1917493182303694/",
+            "owner": "未知",
+            "publishDate": "2026-05-18",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 38,
+              "total": 38,
+              "likes": 25,
+              "comments": 13,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.6578947368421053,
+              "commentsShare": 0.34210526315789475,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          },
+          {
+            "id": "imp-727141206",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1917101412342871/",
+            "owner": "未知",
+            "publishDate": "2026-05-18",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 33,
+              "total": 33,
+              "likes": 18,
+              "comments": 15,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.5454545454545454,
+              "commentsShare": 0.45454545454545453,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          },
+          {
+            "id": "imp-1218894471",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1919930192059993/",
+            "owner": "未知",
+            "publishDate": "2026-05-21",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 32,
+              "total": 32,
+              "likes": 22,
+              "comments": 10,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.6875,
+              "commentsShare": 0.3125,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          },
+          {
+            "id": "imp-2117468077",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1919738762079136/",
+            "owner": "未知",
+            "publishDate": "2026-05-21",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 26,
+              "total": 26,
+              "likes": 23,
+              "comments": 3,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.8846153846153846,
+              "commentsShare": 0.11538461538461539,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          },
+          {
+            "id": "imp-332924781",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1919075578812121/",
+            "owner": "未知",
+            "publishDate": "2026-05-20",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 21,
+              "total": 21,
+              "likes": 15,
+              "comments": 6,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.7142857142857143,
+              "commentsShare": 0.2857142857142857,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          },
+          {
+            "id": "imp-593731380",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1918944508825228/",
+            "owner": "未知",
+            "publishDate": "2026-05-20",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 17,
+              "total": 17,
+              "likes": 17,
+              "comments": 0,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 1,
+              "commentsShare": 0,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          },
+          {
+            "id": "imp-1375683229",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1920412188678460/",
+            "owner": "未知",
+            "publishDate": "2026-05-22",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 11,
+              "total": 11,
+              "likes": 8,
+              "comments": 3,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.7272727272727273,
+              "commentsShare": 0.2727272727272727,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          },
+          {
+            "id": "imp-1183979399",
+            "title": "facebook 内容",
+            "link": "https://www.facebook.com/groups/beetlesbeautyartist/permalink/1916510789068600/",
+            "owner": "未知",
+            "publishDate": "2026-05-17",
+            "group": "facebook",
+            "metrics": {
+              "interaction": 6,
+              "total": 6,
+              "likes": 2,
+              "comments": 4,
+              "shares": 0,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.3333333333333333,
+              "commentsShare": 0.6666666666666666,
+              "sharesShare": 0,
+              "savesShare": 0,
+              "otherShare": 0
+            }
+          }
+        ]
+      },
+      {
+        "channel": "社媒",
+        "metricPolicy": {
+          "exposureAvailable": true,
+          "interactionRateAvailable": true
+        },
+        "posts": 2291,
+        "exposure": 22637140,
+        "interaction": 357587,
+        "interactionRate": 0.015796474289596654,
+        "lifecycleMethodology": {
+          "sample": "当前渠道下，只纳入发帖周 2026-05-04 ~ 2026-05-10 的帖子，共 1029 帖。",
+          "selectionRule": "默认取复盘自然周往前两周；可切换到其他发帖自然周。",
+          "metric": "汇总曝光和互动。",
+          "calculation": "每个生命周期窗口用统计日期快照做累计差分：窗口结束累计值减去窗口前一日累计值；未走完的后续周按已有快照计算，不做外推。",
+          "windows": [
+            "第1周=发布后1-7天",
+            "第2周=发布后8-14天",
+            "第3周=发布后15-21天",
+            "第4周=发布后22-28天"
+          ],
+          "note": "生命周期窗口看的是发帖后的第1-4周，不是自然周走势。"
+        },
+        "lifecycleRows": [
+          {
+            "label": "第1周",
+            "window": "发布后1-7天",
+            "posts": 399,
+            "interaction": 102310,
+            "interactionShare": 0.3178276753317759,
+            "avgInteraction": 256.41604010025065,
+            "diagnosis": "曝光互动匹配",
+            "exposure": 6832785,
+            "exposureShare": 0.3329197488576688,
+            "interactionRate": 0.01497339664573084,
+            "contributionGap": -0.015092073525892868
+          },
+          {
+            "label": "第2周",
+            "window": "发布后8-14天",
+            "posts": 514,
+            "interaction": 187995,
+            "interactionShare": 0.5840095183657239,
+            "avgInteraction": 365.7490272373541,
+            "diagnosis": "曝光互动匹配",
+            "exposure": 11699912,
+            "exposureShare": 0.5700650268809607,
+            "interactionRate": 0.016068069571805326,
+            "contributionGap": 0.013944491484763177
+          },
+          {
+            "label": "第3周",
+            "window": "发布后15-21天",
+            "posts": 193,
+            "interaction": 31599,
+            "interactionShare": 0.09816280630250013,
+            "avgInteraction": 163.72538860103626,
+            "diagnosis": "曝光互动匹配",
+            "exposure": 1991123,
+            "exposureShare": 0.09701522426137045,
+            "interactionRate": 0.015869938723022135,
+            "contributionGap": 0.0011475820411296772
+          },
+          {
+            "label": "第4周",
+            "window": "发布后22-28天",
+            "posts": 0,
+            "interaction": 0,
+            "interactionShare": 0,
+            "avgInteraction": 0,
+            "diagnosis": "无数据",
+            "exposure": 0,
+            "exposureShare": 0,
+            "interactionRate": 0,
+            "contributionGap": 0
+          }
+        ],
+        "topSources": [
+          {
+            "label": "Facebook",
+            "posts": 386,
+            "interaction": 156719,
+            "interactionShare": 0.4382681697041559,
+            "interactionBreakdown": {
+              "total": 156719,
+              "likes": 113398,
+              "comments": 2767,
+              "shares": 7349,
+              "saves": 33205,
+              "other": 0,
+              "likesShare": 0.7235753163305023,
+              "commentsShare": 0.01765580433769996,
+              "sharesShare": 0.04689284643214926,
+              "savesShare": 0.2118760328996484,
+              "otherShare": 0
+            },
+            "exposure": 12278097,
+            "exposureShare": 0.5423872892070288
+          },
+          {
+            "label": "Instagram",
+            "posts": 309,
+            "interaction": 195615,
+            "interactionShare": 0.5470416989431942,
+            "interactionBreakdown": {
+              "total": 195615,
+              "likes": 146467,
+              "comments": 2647,
+              "shares": 12365,
+              "saves": 34136,
+              "other": 0,
+              "likesShare": 0.7487513738721469,
+              "commentsShare": 0.013531682130715946,
+              "sharesShare": 0.06321089895969123,
+              "savesShare": 0.17450604503744602,
+              "otherShare": 0
+            },
+            "exposure": 10071656,
+            "exposureShare": 0.4449173349636924
+          },
+          {
+            "label": "TikTok",
+            "posts": 129,
+            "interaction": 4826,
+            "interactionShare": 0.013496016354062088,
+            "interactionBreakdown": {
+              "total": 4826,
+              "likes": 3771,
+              "comments": 86,
+              "shares": 136,
+              "saves": 834,
+              "other": 0,
+              "likesShare": 0.7813924575217571,
+              "commentsShare": 0.017820140903439703,
+              "sharesShare": 0.02818068794032325,
+              "savesShare": 0.17281392457521758,
+              "otherShare": 0
+            },
+            "exposure": 224917,
+            "exposureShare": 0.009935751601129824
+          },
+          {
+            "label": "pinterest",
+            "posts": 287,
+            "interaction": 427,
+            "interactionShare": 0.0011941149985877563,
+            "interactionBreakdown": {
+              "total": 427,
+              "likes": 34,
+              "comments": 0,
+              "shares": 0,
+              "saves": 393,
+              "other": 0,
+              "likesShare": 0.07962529274004684,
+              "commentsShare": 0,
+              "sharesShare": 0,
+              "savesShare": 0.9203747072599532,
+              "otherShare": 0
+            },
+            "exposure": 62470,
+            "exposureShare": 0.0027596242281489624
+          }
+        ],
+        "topPosts": [
+          {
+            "id": "imp-662664129",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-10",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 379340,
+              "interaction": 1845,
+              "total": 1845,
+              "likes": 1590,
+              "comments": 1,
+              "shares": 28,
+              "saves": 226,
+              "other": 0,
+              "likesShare": 0.8617886178861789,
+              "commentsShare": 0.0005420054200542005,
+              "sharesShare": 0.015176151761517615,
+              "savesShare": 0.12249322493224932,
+              "otherShare": 0,
+              "interactionRate": 0.004863710655348763
+            }
+          },
+          {
+            "id": "imp-932128288",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-10",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 379271,
+              "interaction": 1845,
+              "total": 1845,
+              "likes": 1590,
+              "comments": 1,
+              "shares": 28,
+              "saves": 226,
+              "other": 0,
+              "likesShare": 0.8617886178861789,
+              "commentsShare": 0.0005420054200542005,
+              "sharesShare": 0.015176151761517615,
+              "savesShare": 0.12249322493224932,
+              "otherShare": 0,
+              "interactionRate": 0.004864595500315078
+            }
+          },
+          {
+            "id": "imp-932163966",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-10",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 378927,
+              "interaction": 1843,
+              "total": 1843,
+              "likes": 1588,
+              "comments": 1,
+              "shares": 28,
+              "saves": 226,
+              "other": 0,
+              "likesShare": 0.8616386326641345,
+              "commentsShare": 0.0005425935973955507,
+              "sharesShare": 0.015192620727075421,
+              "savesShare": 0.12262615301139447,
+              "otherShare": 0,
+              "interactionRate": 0.004863733647905797
+            }
+          },
+          {
+            "id": "imp-932193666",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-10",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 378755,
+              "interaction": 1842,
+              "total": 1842,
+              "likes": 1587,
+              "comments": 1,
+              "shares": 28,
+              "saves": 226,
+              "other": 0,
+              "likesShare": 0.8615635179153095,
+              "commentsShare": 0.0005428881650380022,
+              "sharesShare": 0.01520086862106406,
+              "savesShare": 0.12269272529858849,
+              "otherShare": 0,
+              "interactionRate": 0.004863302134625286
+            }
+          },
+          {
+            "id": "imp-932221686",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-10",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 378665,
+              "interaction": 1841,
+              "total": 1841,
+              "likes": 1586,
+              "comments": 1,
+              "shares": 28,
+              "saves": 226,
+              "other": 0,
+              "likesShare": 0.8614883215643672,
+              "commentsShare": 0.0005431830526887561,
+              "sharesShare": 0.015209125475285171,
+              "savesShare": 0.12275936990765889,
+              "otherShare": 0,
+              "interactionRate": 0.004861817173491081
+            }
+          },
+          {
+            "id": "imp-1434527935",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-16",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 363322,
+              "interaction": 3117,
+              "total": 3117,
+              "likes": 2834,
+              "comments": 5,
+              "shares": 20,
+              "saves": 258,
+              "other": 0,
+              "likesShare": 0.9092075713827398,
+              "commentsShare": 0.0016041065126724415,
+              "sharesShare": 0.006416426050689766,
+              "savesShare": 0.08277189605389798,
+              "otherShare": 0,
+              "interactionRate": 0.008579166689603162
+            }
+          },
+          {
+            "id": "imp-1520816937",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-16",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 356619,
+              "interaction": 3020,
+              "total": 3020,
+              "likes": 2743,
+              "comments": 5,
+              "shares": 20,
+              "saves": 252,
+              "other": 0,
+              "likesShare": 0.9082781456953642,
+              "commentsShare": 0.0016556291390728477,
+              "sharesShare": 0.006622516556291391,
+              "savesShare": 0.08344370860927153,
+              "otherShare": 0,
+              "interactionRate": 0.008468421480627784
+            }
+          },
+          {
+            "id": "imp-1520760426",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-16",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 331980,
+              "interaction": 2658,
+              "total": 2658,
+              "likes": 2412,
+              "comments": 5,
+              "shares": 19,
+              "saves": 222,
+              "other": 0,
+              "likesShare": 0.90744920993228,
+              "commentsShare": 0.0018811136192626034,
+              "sharesShare": 0.0071482317531978935,
+              "savesShare": 0.0835214446952596,
+              "otherShare": 0,
+              "interactionRate": 0.00800650641604916
+            }
+          },
+          {
+            "id": "imp-735847752",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-09",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 310071,
+              "interaction": 9958,
+              "total": 9958,
+              "likes": 4686,
+              "comments": 20,
+              "shares": 805,
+              "saves": 4447,
+              "other": 0,
+              "likesShare": 0.4705764209680659,
+              "commentsShare": 0.002008435428800964,
+              "sharesShare": 0.0808395260092388,
+              "savesShare": 0.44657561759389436,
+              "otherShare": 0,
+              "interactionRate": 0.0321152252226103
+            }
+          },
+          {
+            "id": "imp-1336325895",
+            "title": "facebook 内容",
+            "link": "",
+            "owner": "未知",
+            "publishDate": "2026-05-09",
+            "channel": "Facebook",
+            "metrics": {
+              "exposure": 305965,
+              "interaction": 9765,
+              "total": 9765,
+              "likes": 4592,
+              "comments": 20,
+              "shares": 784,
+              "saves": 4369,
+              "other": 0,
+              "likesShare": 0.47025089605734766,
+              "commentsShare": 0.002048131080389145,
+              "sharesShare": 0.08028673835125448,
+              "savesShare": 0.4474142345110087,
+              "otherShare": 0,
+              "interactionRate": 0.03191541516186492
+            }
+          }
+        ]
+      },
+      {
+        "channel": "KOL",
+        "metricPolicy": {
+          "exposureAvailable": true,
+          "interactionRateAvailable": true
+        },
+        "posts": 210,
+        "exposure": 10908363,
+        "interaction": 1185871,
+        "interactionRate": 0.10871209548123766,
+        "lifecycleMethodology": {
+          "sample": "当前渠道下，只纳入发帖周 2026-05-04 ~ 2026-05-10 的帖子，共 167 帖。",
+          "selectionRule": "默认取复盘自然周往前两周；可切换到其他发帖自然周。",
+          "metric": "汇总曝光和互动。",
+          "calculation": "每个生命周期窗口用统计日期快照做累计差分：窗口结束累计值减去窗口前一日累计值；未走完的后续周按已有快照计算，不做外推。",
+          "windows": [
+            "第1周=发布后1-7天",
+            "第2周=发布后8-14天",
+            "第3周=发布后15-21天",
+            "第4周=发布后22-28天"
+          ],
+          "note": "生命周期窗口看的是发帖后的第1-4周，不是自然周走势。"
+        },
+        "lifecycleRows": [
+          {
+            "label": "第1周",
+            "window": "发布后1-7天",
+            "posts": 0,
+            "interaction": 0,
+            "interactionShare": 0,
+            "avgInteraction": 0,
+            "diagnosis": "无数据",
+            "exposure": 0,
+            "exposureShare": 0,
+            "interactionRate": 0,
+            "contributionGap": 0
+          },
+          {
+            "label": "第2周",
+            "window": "发布后8-14天",
+            "posts": 98,
+            "interaction": 320363,
+            "interactionShare": 0.26167931922846327,
+            "avgInteraction": 3269.0102040816328,
+            "diagnosis": "曝光互动匹配",
+            "exposure": 3023704,
+            "exposureShare": 0.2755912279401759,
+            "interactionRate": 0.10595051632038056,
+            "contributionGap": -0.013911908711712606
+          },
+          {
+            "label": "第3周",
+            "window": "发布后15-21天",
+            "posts": 164,
+            "interaction": 903895,
+            "interactionShare": 0.7383206807715367,
+            "avgInteraction": 5511.554878048781,
+            "diagnosis": "曝光互动匹配",
+            "exposure": 7947995,
+            "exposureShare": 0.7244087720598241,
+            "interactionRate": 0.11372616615888662,
+            "contributionGap": 0.01391190871171255
+          },
+          {
+            "label": "第4周",
+            "window": "发布后22-28天",
+            "posts": 0,
+            "interaction": 0,
+            "interactionShare": 0,
+            "avgInteraction": 0,
+            "diagnosis": "无数据",
+            "exposure": 0,
+            "exposureShare": 0,
+            "interactionRate": 0,
+            "contributionGap": 0
+          }
+        ],
+        "topSources": [
+          {
+            "label": "TikTok",
+            "posts": 156,
+            "interaction": 872335,
+            "interactionShare": 0.73560699266615,
+            "interactionBreakdown": {
+              "total": 872335,
+              "likes": 801445,
+              "comments": 2566,
+              "shares": 11544,
+              "saves": 56780,
+              "other": 0,
+              "likesShare": 0.9187353482320438,
+              "commentsShare": 0.002941530490006706,
+              "sharesShare": 0.013233448159250746,
+              "savesShare": 0.06508967311869866,
+              "otherShare": 0
+            },
+            "exposure": 7764190,
+            "exposureShare": 0.7117649091802317
+          },
+          {
+            "label": "Instagram",
+            "posts": 48,
+            "interaction": 313012,
+            "interactionShare": 0.26395113802428766,
+            "interactionBreakdown": {
+              "total": 313012,
+              "likes": 286271,
+              "comments": 1829,
+              "shares": 24912,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.9145687705263696,
+              "commentsShare": 0.005843226457771587,
+              "sharesShare": 0.07958800301585882,
+              "savesShare": 0,
+              "otherShare": 0
+            },
+            "exposure": 3067873,
+            "exposureShare": 0.2812404574361891
+          },
+          {
+            "label": "Facebook",
+            "posts": 6,
+            "interaction": 524,
+            "interactionShare": 0.00044186930956233855,
+            "interactionBreakdown": {
+              "total": 524,
+              "likes": 505,
+              "comments": 10,
+              "shares": 9,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.9637404580152672,
+              "commentsShare": 0.019083969465648856,
+              "sharesShare": 0.01717557251908397,
+              "savesShare": 0,
+              "otherShare": 0
+            },
+            "exposure": 76300,
+            "exposureShare": 0.006994633383579186
+          }
+        ],
+        "topPosts": [
+          {
+            "id": "imp-782044942",
+            "title": "2026母亲节礼盒 · 开箱;口播",
+            "link": "https://www.tiktok.com/@dakitista/video/7636499927148825887",
+            "owner": "林盈盈",
+            "publishDate": "2026-05-06",
+            "channel": "TikTok",
+            "metrics": {
+              "exposure": 2400000,
+              "interaction": 490711,
+              "total": 490711,
+              "likes": 473600,
+              "comments": 482,
+              "shares": 1678,
+              "saves": 14951,
+              "other": 0,
+              "likesShare": 0.9651301886446402,
+              "commentsShare": 0.000982248207193236,
+              "sharesShare": 0.003419527991017116,
+              "savesShare": 0.030468035157149524,
+              "otherShare": 0,
+              "interactionRate": 0.20446291666666666
+            }
+          },
+          {
+            "id": "imp-610210879",
+            "title": "KOL品线推广 · 做款;口播",
+            "link": "https://www.tiktok.com/@nailsbypriyaa/video/7636475528664354070",
+            "owner": "周紫月",
+            "publishDate": "2026-05-06",
+            "channel": "TikTok",
+            "metrics": {
+              "exposure": 1500000,
+              "interaction": 99388,
+              "total": 99388,
+              "likes": 91400,
+              "comments": 64,
+              "shares": 1191,
+              "saves": 6733,
+              "other": 0,
+              "likesShare": 0.919628124119612,
+              "commentsShare": 0.0006439409184207349,
+              "sharesShare": 0.011983338028735864,
+              "savesShare": 0.06774459693323137,
+              "otherShare": 0,
+              "interactionRate": 0.06625866666666666
+            }
+          },
+          {
+            "id": "imp-1192889299",
+            "title": "2026母亲节礼盒 · 做款",
+            "link": "https://www.tiktok.com/@nailsbypaular/video/7636794909009120534?lang=en",
+            "owner": "林盈盈",
+            "publishDate": "2026-05-06",
+            "channel": "TikTok",
+            "metrics": {
+              "exposure": 943100,
+              "interaction": 46290,
+              "total": 46290,
+              "likes": 29500,
+              "comments": 32,
+              "shares": 5407,
+              "saves": 11351,
+              "other": 0,
+              "likesShare": 0.6372866709872542,
+              "commentsShare": 0.0006912940159861741,
+              "sharesShare": 0.11680708576366386,
+              "savesShare": 0.2452149492330957,
+              "otherShare": 0,
+              "interactionRate": 0.049082812002968934
+            }
+          },
+          {
+            "id": "imp-1935406862",
+            "title": "2026美甲灯 · 教程",
+            "link": "https://www.tiktok.com/@dianajbz/video/7635821070628556050",
+            "owner": "周紫月",
+            "publishDate": "2026-05-04",
+            "channel": "TikTok",
+            "metrics": {
+              "exposure": 850200,
+              "interaction": 66350,
+              "total": 66350,
+              "likes": 57600,
+              "comments": 80,
+              "shares": 835,
+              "saves": 7835,
+              "other": 0,
+              "likesShare": 0.8681235870384325,
+              "commentsShare": 0.0012057272042200451,
+              "sharesShare": 0.012584777694046721,
+              "savesShare": 0.11808590806330067,
+              "otherShare": 0,
+              "interactionRate": 0.078040461067984
+            }
+          },
+          {
+            "id": "imp-23198652",
+            "title": "instagram 内容",
+            "link": "https://www.instagram.com/p/DX94PvqMN5r/",
+            "owner": "未知",
+            "publishDate": "2026-05-06",
+            "channel": "Instagram",
+            "metrics": {
+              "exposure": 780557,
+              "interaction": 54961,
+              "total": 54961,
+              "likes": 52189,
+              "comments": 35,
+              "shares": 2737,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.9495642364585797,
+              "commentsShare": 0.000636815196230054,
+              "sharesShare": 0.049798948345190226,
+              "savesShare": 0,
+              "otherShare": 0,
+              "interactionRate": 0.07041253873836248
+            }
+          },
+          {
+            "id": "imp-937225561",
+            "title": "instagram 内容",
+            "link": "https://www.instagram.com/p/DYKXWU3oTcp/",
+            "owner": "未知",
+            "publishDate": "2026-05-10",
+            "channel": "Instagram",
+            "metrics": {
+              "exposure": 505009,
+              "interaction": 22088,
+              "total": 22088,
+              "likes": 21780,
+              "comments": 11,
+              "shares": 297,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.9860557768924303,
+              "commentsShare": 0.00049800796812749,
+              "sharesShare": 0.013446215139442231,
+              "savesShare": 0,
+              "otherShare": 0,
+              "interactionRate": 0.043737834375228955
+            }
+          },
+          {
+            "id": "imp-2074164482",
+            "title": "instagram 内容",
+            "link": "https://www.instagram.com/p/DYKX-Pkusyu/",
+            "owner": "未知",
+            "publishDate": "2026-05-10",
+            "channel": "Instagram",
+            "metrics": {
+              "exposure": 451332,
+              "interaction": 97136,
+              "total": 97136,
+              "likes": 95334,
+              "comments": 46,
+              "shares": 1756,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.9814486904957997,
+              "commentsShare": 0.0004735628397298633,
+              "sharesShare": 0.018077746664470432,
+              "savesShare": 0,
+              "otherShare": 0,
+              "interactionRate": 0.21522072443345475
+            }
+          },
+          {
+            "id": "imp-1170774392",
+            "title": "instagram 内容",
+            "link": "https://www.instagram.com/p/DX92e19RNW1/",
+            "owner": "未知",
+            "publishDate": "2026-05-06",
+            "channel": "Instagram",
+            "metrics": {
+              "exposure": 420800,
+              "interaction": 38315,
+              "total": 38315,
+              "likes": 37184,
+              "comments": 37,
+              "shares": 1094,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.970481534647005,
+              "commentsShare": 0.0009656792378963852,
+              "sharesShare": 0.028552786115098525,
+              "savesShare": 0,
+              "otherShare": 0,
+              "interactionRate": 0.0910527566539924
+            }
+          },
+          {
+            "id": "imp-2100122734",
+            "title": "instagram 内容",
+            "link": "https://www.instagram.com/p/DYAFRC1oR1x/",
+            "owner": "未知",
+            "publishDate": "2026-05-06",
+            "channel": "Instagram",
+            "metrics": {
+              "exposure": 419630,
+              "interaction": 50615,
+              "total": 50615,
+              "likes": 38014,
+              "comments": 50,
+              "shares": 12551,
+              "saves": 0,
+              "other": 0,
+              "likesShare": 0.7510421811715895,
+              "commentsShare": 0.0009878494517435543,
+              "sharesShare": 0.247969969376667,
+              "savesShare": 0,
+              "otherShare": 0,
+              "interactionRate": 0.1206181636203322
+            }
+          },
+          {
+            "id": "imp-470015930",
+            "title": "KOL品线推广 · 做款;口播",
+            "link": "https://www.tiktok.com/@joujjouuu/video/7638275273271610644",
+            "owner": "高咏欣",
+            "publishDate": "2026-05-10",
+            "channel": "TikTok",
+            "metrics": {
+              "exposure": 332300,
+              "interaction": 26091,
+              "total": 26091,
+              "likes": 24100,
+              "comments": 93,
+              "shares": 354,
+              "saves": 1544,
+              "other": 0,
+              "likesShare": 0.9236901613583228,
+              "commentsShare": 0.0035644475106358514,
+              "sharesShare": 0.013567896975968725,
+              "savesShare": 0.05917749415507263,
+              "otherShare": 0,
+              "interactionRate": 0.07851640084261209
+            }
+          }
+        ]
+      }
+    ],
+    "offsite": {
+      "mode": "内置站外数据",
+      "metricPolicy": {
+        "useAsBackgroundOnly": true,
+        "noCausalLinkToContent": true,
+        "rule": "站外数据没有与具体内容的映射时，只能作为背景结构，不能推断内容带动。"
+      },
+      "total": 1865756,
+      "quantityPerformance": {
+        "source": "手填数据",
+        "remark": "节点热度回落后，品牌讨论占比仍高于上周。",
+        "metrics": [
+          {
+            "label": "媒体提及",
+            "current": 24,
+            "previous": 19,
+            "unit": ""
+          },
+          {
+            "label": "社交提及",
+            "current": 213,
+            "previous": 246,
+            "unit": ""
+          },
+          {
+            "label": "SOV",
+            "current": 18.6,
+            "previous": 16.9,
+            "unit": "%"
+          }
+        ]
+      },
+      "rows": [
+        {
+          "label": "FB 来源 US 站",
+          "value": 787634,
+          "interaction": 0,
+          "note": "US"
+        },
+        {
+          "label": "谷歌来源 US 站",
+          "value": 699163,
+          "interaction": 0,
+          "note": "US"
+        },
+        {
+          "label": "EDM",
+          "value": 166851,
+          "interaction": 0,
+          "note": "-"
+        },
+        {
+          "label": "谷歌来源 UK 站",
+          "value": 120349,
+          "interaction": 0,
+          "note": "UK"
+        },
+        {
+          "label": "FB 来源 UK 站",
+          "value": 49237,
+          "interaction": 0,
+          "note": "UK"
+        },
+        {
+          "label": "独立站 DTC 店铺流量",
+          "value": 42522,
+          "interaction": 0,
+          "note": "-"
+        }
+      ]
+    },
+    "inputLimitations": [
+      "数据包不包含视频内容文本、完播率、观看时长、账号粉丝量、转化、GMV 或花费字段。",
+      "负责人为空的内容只能显示为未知，不能做责任归因；需要负责人补充后才能进入最终口径。",
+      "社媒部分 Top 内容如果 link 为空，只能做表现结构判断，不能分析具体内容好在哪里。",
+      "站外数据仅作为展示和背景信息，不进入内容原因判断。"
+    ]
+  }
+}

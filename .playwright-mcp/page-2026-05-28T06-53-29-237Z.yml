@@ -1,0 +1,245 @@
+- generic [ref=e2]:
+  - complementary "主导航" [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: "3.0"
+      - generic [ref=e6]:
+        - heading "周复盘分析看板" [level=1] [ref=e7]
+        - paragraph [ref=e8]: 证据链优先 · 人工确认发布
+    - navigation "报表模块" [ref=e9]:
+      - button "汇报总览 本期概览、重点发现、分渠道复用经验和避雷区。" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 总
+        - generic [ref=e12]:
+          - strong [ref=e13]: 汇报总览
+          - generic [ref=e14]: 本期概览、重点发现、分渠道复用经验和避雷区。
+      - button "证据链 所有结论都从数据现象、假设和验证结果进入人工确认。" [ref=e15] [cursor=pointer]:
+        - generic [ref=e16]: 证
+        - generic [ref=e17]:
+          - strong [ref=e18]: 证据链
+          - generic [ref=e19]: 所有结论都从数据现象、假设和验证结果进入人工确认。
+      - button "长期验证 跨周追踪假设，成立后沉淀长期经验。" [ref=e20] [cursor=pointer]:
+        - generic [ref=e21]: 验
+        - generic [ref=e22]:
+          - strong [ref=e23]: 长期验证
+          - generic [ref=e24]: 跨周追踪假设，成立后沉淀长期经验。
+      - button "社群 社群互动、帖子质量和负责人总结。" [ref=e25] [cursor=pointer]:
+        - generic [ref=e26]: 群
+        - generic [ref=e27]:
+          - strong [ref=e28]: 社群
+          - generic [ref=e29]: 社群互动、帖子质量和负责人总结。
+      - button "社媒 围绕曝光、互动、内容形式和 Top 帖子做复盘。" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]: 媒
+        - generic [ref=e32]:
+          - strong [ref=e33]: 社媒
+          - generic [ref=e34]: 围绕曝光、互动、内容形式和 Top 帖子做复盘。
+      - button "KOL 围绕达人/账号、曝光、互动和 Top 帖子做复盘。" [ref=e35] [cursor=pointer]:
+        - generic [ref=e36]: KOL
+        - generic [ref=e37]:
+          - strong [ref=e38]: KOL
+          - generic [ref=e39]: 围绕达人/账号、曝光、互动和 Top 帖子做复盘。
+      - button "站外数据 站外曝光、数量表现和来源结构。" [ref=e40] [cursor=pointer]:
+        - generic [ref=e41]: 外
+        - generic [ref=e42]:
+          - strong [ref=e43]: 站外数据
+          - generic [ref=e44]: 站外曝光、数量表现和来源结构。
+      - button "AI分析工作台 生成分析包，导入 GPT 草稿，再交给负责人确认。" [ref=e45] [cursor=pointer]:
+        - generic [ref=e46]: AI
+        - generic [ref=e47]:
+          - strong [ref=e48]: AI分析工作台
+          - generic [ref=e49]: 生成分析包，导入 GPT 草稿，再交给负责人确认。
+      - button "数据质量 检查导入预检、缺失字段、重复链接和渠道识别。" [ref=e50] [cursor=pointer]:
+        - generic [ref=e51]: 质
+        - generic [ref=e52]:
+          - strong [ref=e53]: 数据质量
+          - generic [ref=e54]: 检查导入预检、缺失字段、重复链接和渠道识别。
+    - generic [ref=e55]:
+      - strong [ref=e56]: 当前状态
+      - generic [ref=e57]: 已导入 · 品牌营销汇总分析 2026-05-25 18_22_52.xlsx · 2,532帖 · 本机缓存
+      - generic [ref=e58]: AI草稿 · 2026-05-27
+  - generic [ref=e59]:
+    - banner [ref=e60]:
+      - generic [ref=e61]:
+        - generic [ref=e62]: 汇报总览
+        - heading "本期复盘" [level=2] [ref=e63]
+        - paragraph [ref=e64]: 本期概览、重点发现、分渠道复用经验和避雷区。
+      - generic "全局操作" [ref=e65]:
+        - button "复盘周期 2026-05-18 — 2026-05-24" [ref=e67] [cursor=pointer]:
+          - generic [ref=e68]: 复盘周期
+          - generic [ref=e69]: 2026-05-18 — 2026-05-24
+        - button "内容批次周期 2026-05-01 — 2026-05-24" [ref=e71] [cursor=pointer]:
+          - generic [ref=e72]: 内容批次周期
+          - generic [ref=e73]: 2026-05-01 — 2026-05-24
+        - button "导入 Excel" [ref=e74] [cursor=pointer]
+        - button "恢复内置" [ref=e75] [cursor=pointer]
+        - button "返回顶部" [ref=e76] [cursor=pointer]
+      - generic [ref=e77]:
+        - generic [ref=e78]: 复盘周期 2026-05-18 ~ 2026-05-24
+        - generic [ref=e79]: 批次周期 2026-05-01 ~ 2026-05-24
+        - generic [ref=e80]: 已导入 · 品牌营销汇总分析 2026-05-25 18_22_52.xlsx · 2,532帖 · 本机缓存
+        - generic [ref=e81]: AI草稿 · 2026-05-27
+        - radiogroup "版本切换" [ref=e82]:
+          - radio "工作版" [checked] [ref=e83] [cursor=pointer]
+          - radio "发布版" [ref=e84] [cursor=pointer]
+    - main [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - heading "本期概览" [level=3] [ref=e89]
+            - paragraph [ref=e90]: 所有指标来自当前复盘周期。
+          - generic [ref=e91]: 本机草稿
+        - generic [ref=e92]:
+          - article [ref=e93]:
+            - generic [ref=e94]: 样本帖子数
+            - generic [ref=e95]: 2,532
+            - generic [ref=e96]: 内容批次周期内发布
+          - article [ref=e97]:
+            - generic [ref=e98]: 本期曝光
+            - generic [ref=e99]: 3354.6万
+            - generic [ref=e100]: 较前期 +77.9%
+          - article [ref=e101]:
+            - generic [ref=e102]: 本期互动
+            - generic [ref=e103]: 154.4万
+            - generic [ref=e104]: 较前期 +207.2%
+          - article [ref=e105]:
+            - generic [ref=e106]: 互动率
+            - generic [ref=e107]: 4.6%
+            - generic [ref=e108]: 较前期 +1.9 pct
+      - generic [ref=e109]:
+        - generic [ref=e111]:
+          - heading "重点发现" [level=3] [ref=e112]
+          - paragraph [ref=e113]: 这里只展示可被数据验证的事实型发现，发散判断进入 AI 草稿和负责人确认。
+        - generic [ref=e114]:
+          - generic [ref=e115]:
+            - strong [ref=e116]: 渠道结构
+            - paragraph [ref=e117]: 曝光优先看 Instagram，贡献 39.2% 曝光；互动优先看 TikTok，贡献 56.8% 互动。这里是程序聚合事实，不解释原因。
+          - generic [ref=e118]:
+            - strong [ref=e119]: Top 内容边界
+            - paragraph [ref=e120]: Top5 帖子曝光占比 19.3%。低于 30%，只能说明 Top 内容具备复盘价值，不能写成 Top 内容带动整体。
+          - generic [ref=e121]:
+            - strong [ref=e122]: 社媒与 KOL 的复盘入口
+            - paragraph [ref=e123]: 社媒 Top 来源：Facebook；KOL Top 来源：TikTok。进入各渠道页查看 Top 帖、生命周期和负责人总结。
+          - generic [ref=e124]:
+            - strong [ref=e125]: 数据质量边界
+            - paragraph [ref=e126]: 导入有效行 20,148，跳过 402；负责人缺失 15,419，链接缺失 6,415。负责人归因和原帖判断必须人工补充。
+          - generic [ref=e127]:
+            - strong [ref=e128]: 项目维度
+            - paragraph [ref=e129]: 暂无项目维度数据。
+          - generic [ref=e130]:
+            - strong [ref=e131]: 漏斗结构
+            - paragraph [ref=e132]: 非社群漏斗 Top 为 Interest，曝光占比 59.5%，互动率 7.0%。该结构只说明内容分布和表现入口，不代表转化效果。
+      - generic [ref=e133]:
+        - generic [ref=e134]:
+          - generic [ref=e135]:
+            - heading "项目表现对比" [level=3] [ref=e136]
+            - paragraph [ref=e137]: 按项目查看曝光体量与贡献占比（Top 8）。
+          - generic [ref=e138]: 程序事实
+        - generic [ref=e139]: 暂无项目维度数据。
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - heading "营销漏斗分布" [level=3] [ref=e143]
+            - paragraph [ref=e144]: 按漏斗层级查看曝光、曝光占比与互动效率。
+          - generic [ref=e145]: 程序事实
+        - generic [ref=e146]:
+          - generic [ref=e147]:
+            - generic [ref=e148]: Interest
+            - generic [ref=e151]: 467.6万 · 59.5% · 互动率 7.0%
+          - generic [ref=e152]:
+            - generic [ref=e153]: Decision/Purchase/Repeat
+            - generic [ref=e156]: 248.2万 · 31.6% · 互动率 19.9%
+          - generic [ref=e157]:
+            - generic [ref=e158]: Awareness
+            - generic [ref=e161]: 62.3万 · 7.9% · 互动率 7.4%
+          - generic [ref=e162]:
+            - generic [ref=e163]: Consideration/Evaluation
+            - generic [ref=e166]: 6.6万 · 0.8% · 互动率 4.9%
+          - generic [ref=e167]:
+            - generic [ref=e168]: Loyalty/Advocacy
+            - generic [ref=e171]: 8757 · 0.1% · 互动率 16.8%
+      - generic [ref=e172]:
+        - generic [ref=e173]:
+          - generic [ref=e174]:
+            - heading "AI 深层思考草稿" [level=3] [ref=e175]
+            - paragraph [ref=e176]: 这里不重复程序能算出的事实，只放假设、原因方向和负责人待确认问题。
+          - generic [ref=e177]: AI草稿
+        - generic [ref=e178]:
+          - article [ref=e179]:
+            - generic [ref=e180]: AI 草稿
+            - heading "本期更适合按曝光入口和互动入口分开复盘" [level=4] [ref=e181]
+            - paragraph [ref=e182]: 【推断】本期最值得负责人判断的不是“哪条内容带动整体”，而是 Instagram/Facebook 承担曝光入口、TikTok 承担互动入口这一分工是否由内容结构造成；Top 内容只作为人工复盘样本，不写成整体带动原因。
+            - paragraph [ref=e183]: 请分别查看 Instagram/Facebook 高曝光样本和 TikTok 高互动样本，确认哪些内容结构可能解释“高点赞、低评论、次高收藏”的互动形态。
+          - article [ref=e184]:
+            - generic [ref=e185]: AI 草稿
+            - heading "最终口径深度取决于 Top 样本字段补齐" [level=4] [ref=e186]
+            - paragraph [ref=e187]: 【数据直接支撑】当前数据足够支撑渠道结构、Top 样本入口和数据质量提示；【数据不足】不够支撑“内容为什么有效”和“负责人贡献归因”的最终口径。优先补齐社媒 Top10、KOL Top10、社群 Top5 即可，不需要先全量补齐。
+            - paragraph [ref=e188]: 请确认本周最终汇报是否优先补齐社媒 Top10、KOL Top10、社群 Top5 的 owner、link 和负责人定性总结。
+      - generic [ref=e189]:
+        - generic [ref=e191]:
+          - heading "分渠道摘要" [level=3] [ref=e192]
+          - paragraph [ref=e193]: 用于管理层快速定位每个渠道当前最应该复盘的地方。
+        - generic [ref=e194]:
+          - article [ref=e195]:
+            - strong [ref=e196]: 社群
+            - paragraph [ref=e197]: 本期互动 304，样本 31 帖。
+            - paragraph [ref=e198]: Top来源：facebook；Top内容：facebook 内容。
+          - article [ref=e199]:
+            - strong [ref=e200]: 社媒
+            - paragraph [ref=e201]: 本期曝光 2263.7万，样本 2,291 帖。
+            - paragraph [ref=e202]: Top来源：Facebook；Top内容：facebook 内容。
+          - article [ref=e203]:
+            - strong [ref=e204]: KOL
+            - paragraph [ref=e205]: 本期曝光 1090.8万，样本 210 帖。
+            - paragraph [ref=e206]: Top来源：TikTok；Top内容：2026母亲节礼盒 · 开箱;口播。
+      - generic [ref=e207]:
+        - generic [ref=e208]:
+          - generic [ref=e209]:
+            - heading "长期经验" [level=3] [ref=e210]
+            - paragraph [ref=e211]: 只展示已经跨周验证并确认加入的经验；后续被数据连续反证会回到判断阶段。
+          - generic [ref=e212]: 待验证
+        - generic [ref=e213]: 长期假设达到验证周期并由负责人确认后，会沉淀在这里。
+      - generic [ref=e214]:
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - heading "复用经验与避雷区" [level=3] [ref=e217]
+            - paragraph [ref=e218]: 长期保留，不随重新导入覆盖；用于沉淀业务经验。
+          - generic [ref=e219]: 本机长期保存
+        - generic [ref=e220]:
+          - article [ref=e221]:
+            - heading "社群" [level=4] [ref=e222]
+            - generic [ref=e223]:
+              - text: 可复用经验
+              - textbox "可复用经验" [ref=e224]:
+                - /placeholder: 沉淀可以复用的内容形式、话题、协作方式。
+            - generic [ref=e225]:
+              - text: 避雷区
+              - textbox "避雷区" [ref=e226]:
+                - /placeholder: 记录不建议继续复制的问题、口径风险或执行注意事项。
+          - article [ref=e227]:
+            - heading "社媒" [level=4] [ref=e228]
+            - generic [ref=e229]:
+              - text: 可复用经验
+              - textbox "可复用经验" [ref=e230]:
+                - /placeholder: 沉淀可以复用的内容形式、话题、协作方式。
+            - generic [ref=e231]:
+              - text: 避雷区
+              - textbox "避雷区" [ref=e232]:
+                - /placeholder: 记录不建议继续复制的问题、口径风险或执行注意事项。
+          - article [ref=e233]:
+            - heading "KOL" [level=4] [ref=e234]
+            - generic [ref=e235]:
+              - text: 可复用经验
+              - textbox "可复用经验" [ref=e236]:
+                - /placeholder: 沉淀可以复用的内容形式、话题、协作方式。
+            - generic [ref=e237]:
+              - text: 避雷区
+              - textbox "避雷区" [ref=e238]:
+                - /placeholder: 记录不建议继续复制的问题、口径风险或执行注意事项。
+          - article [ref=e239]:
+            - heading "站外数据" [level=4] [ref=e240]
+            - generic [ref=e241]:
+              - text: 可复用经验
+              - textbox "可复用经验" [ref=e242]:
+                - /placeholder: 沉淀可以复用的内容形式、话题、协作方式。
+            - generic [ref=e243]:
+              - text: 避雷区
+              - textbox "避雷区" [ref=e244]:
+                - /placeholder: 记录不建议继续复制的问题、口径风险或执行注意事项。

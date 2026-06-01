@@ -1,0 +1,360 @@
+- generic [ref=e2]:
+  - complementary "主导航" [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: "3.0"
+      - generic [ref=e6]:
+        - heading "周复盘分析看板" [level=1] [ref=e7]
+        - paragraph [ref=e8]: 证据链优先 · 人工确认发布
+    - navigation "报表模块" [ref=e20]:
+      - button "汇报总览 本期概览、重点发现、分渠道复用经验和避雷区。" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 总
+        - generic [ref=e23]:
+          - strong [ref=e24]: 汇报总览
+          - generic [ref=e25]: 本期概览、重点发现、分渠道复用经验和避雷区。
+      - button "证据链 所有结论都从数据现象、假设和验证结果进入人工确认。" [ref=e26] [cursor=pointer]:
+        - generic [ref=e27]: 证
+        - generic [ref=e28]:
+          - strong [ref=e29]: 证据链
+          - generic [ref=e30]: 所有结论都从数据现象、假设和验证结果进入人工确认。
+      - button "长期验证 跨周追踪假设，成立后沉淀长期经验。" [ref=e31] [cursor=pointer]:
+        - generic [ref=e32]: 验
+        - generic [ref=e33]:
+          - strong [ref=e34]: 长期验证
+          - generic [ref=e35]: 跨周追踪假设，成立后沉淀长期经验。
+      - button "社群 社群互动、帖子质量和负责人总结。" [ref=e36] [cursor=pointer]:
+        - generic [ref=e37]: 群
+        - generic [ref=e38]:
+          - strong [ref=e39]: 社群
+          - generic [ref=e40]: 社群互动、帖子质量和负责人总结。
+      - button "社媒 围绕曝光、互动、内容形式和 Top 帖子做复盘。" [ref=e41] [cursor=pointer]:
+        - generic [ref=e42]: 媒
+        - generic [ref=e43]:
+          - strong [ref=e44]: 社媒
+          - generic [ref=e45]: 围绕曝光、互动、内容形式和 Top 帖子做复盘。
+      - button "KOL 围绕达人/账号、曝光、互动和 Top 帖子做复盘。" [ref=e46] [cursor=pointer]:
+        - generic [ref=e47]: KOL
+        - generic [ref=e48]:
+          - strong [ref=e49]: KOL
+          - generic [ref=e50]: 围绕达人/账号、曝光、互动和 Top 帖子做复盘。
+      - button "站外数据 站外曝光、数量表现和来源结构。" [ref=e51] [cursor=pointer]:
+        - generic [ref=e52]: 外
+        - generic [ref=e53]:
+          - strong [ref=e54]: 站外数据
+          - generic [ref=e55]: 站外曝光、数量表现和来源结构。
+      - button "AI分析工作台 生成分析包，导入 GPT 草稿，再交给负责人确认。" [ref=e56] [cursor=pointer]:
+        - generic [ref=e57]: AI
+        - generic [ref=e58]:
+          - strong [ref=e59]: AI分析工作台
+          - generic [ref=e60]: 生成分析包，导入 GPT 草稿，再交给负责人确认。
+      - button "数据质量 检查导入预检、缺失字段、重复链接和渠道识别。" [ref=e61] [cursor=pointer]:
+        - generic [ref=e62]: 质
+        - generic [ref=e63]:
+          - strong [ref=e64]: 数据质量
+          - generic [ref=e65]: 检查导入预检、缺失字段、重复链接和渠道识别。
+    - generic [ref=e9]:
+      - strong [ref=e66]: 当前状态
+      - generic [ref=e67]: 内置数据 · 2,532帖
+      - generic [ref=e68]: AI草稿 · 2026-05-27
+  - generic [ref=e10]:
+    - banner [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: 汇报总览
+        - heading "本期复盘" [level=2] [ref=e14]
+        - paragraph [ref=e15]: 本期概览、重点发现、分渠道复用经验和避雷区。
+      - generic "全局操作" [ref=e16]:
+        - generic [ref=e69]:
+          - button "复盘周期 2026-05-18 — 2026-05-24" [active] [ref=e70] [cursor=pointer]:
+            - generic [ref=e71]: 复盘周期
+            - generic [ref=e72]: 2026-05-18 — 2026-05-24
+          - generic [ref=e73]:
+            - heading "复盘周期" [level=3] [ref=e74]
+            - generic [ref=e75]:
+              - button "‹" [ref=e76] [cursor=pointer]
+              - generic [ref=e77]: 2026年5月
+              - generic [ref=e78]: 2026年6月
+              - button "›" [ref=e79] [cursor=pointer]
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]:
+                  - generic [ref=e83]: 一
+                  - generic [ref=e84]: 二
+                  - generic [ref=e85]: 三
+                  - generic [ref=e86]: 四
+                  - generic [ref=e87]: 五
+                  - generic [ref=e88]: 六
+                  - generic [ref=e89]: 日
+                - generic [ref=e90]:
+                  - button "27" [ref=e91] [cursor=pointer]
+                  - button "28" [ref=e92] [cursor=pointer]
+                  - button "29" [ref=e93] [cursor=pointer]
+                  - button "30" [ref=e94] [cursor=pointer]
+                  - button "1" [ref=e95] [cursor=pointer]
+                  - button "2" [ref=e96] [cursor=pointer]
+                  - button "3" [ref=e97] [cursor=pointer]
+                  - button "4" [ref=e98] [cursor=pointer]
+                  - button "5" [ref=e99] [cursor=pointer]
+                  - button "6" [ref=e100] [cursor=pointer]
+                  - button "7" [ref=e101] [cursor=pointer]
+                  - button "8" [ref=e102] [cursor=pointer]
+                  - button "9" [ref=e103] [cursor=pointer]
+                  - button "10" [ref=e104] [cursor=pointer]
+                  - button "11" [ref=e105] [cursor=pointer]
+                  - button "12" [ref=e106] [cursor=pointer]
+                  - button "13" [ref=e107] [cursor=pointer]
+                  - button "14" [ref=e108] [cursor=pointer]
+                  - button "15" [ref=e109] [cursor=pointer]
+                  - button "16" [ref=e110] [cursor=pointer]
+                  - button "17" [ref=e111] [cursor=pointer]
+                  - button "18" [ref=e112] [cursor=pointer]
+                  - button "19" [ref=e113] [cursor=pointer]
+                  - button "20" [ref=e114] [cursor=pointer]
+                  - button "21" [ref=e115] [cursor=pointer]
+                  - button "22" [ref=e116] [cursor=pointer]
+                  - button "23" [ref=e117] [cursor=pointer]
+                  - button "24" [ref=e118] [cursor=pointer]
+                  - button "25" [ref=e119] [cursor=pointer]
+                  - button "26" [ref=e120] [cursor=pointer]
+                  - button "27" [ref=e121] [cursor=pointer]
+                  - button "28" [ref=e122] [cursor=pointer]
+                  - button "29" [ref=e123] [cursor=pointer]
+                  - button "30" [ref=e124] [cursor=pointer]
+                  - button "31" [ref=e125] [cursor=pointer]
+                  - button "1" [ref=e126] [cursor=pointer]
+                  - button "2" [ref=e127] [cursor=pointer]
+                  - button "3" [ref=e128] [cursor=pointer]
+                  - button "4" [ref=e129] [cursor=pointer]
+                  - button "5" [ref=e130] [cursor=pointer]
+                  - button "6" [ref=e131] [cursor=pointer]
+                  - button "7" [ref=e132] [cursor=pointer]
+              - generic [ref=e133]:
+                - generic [ref=e134]:
+                  - generic [ref=e135]: 一
+                  - generic [ref=e136]: 二
+                  - generic [ref=e137]: 三
+                  - generic [ref=e138]: 四
+                  - generic [ref=e139]: 五
+                  - generic [ref=e140]: 六
+                  - generic [ref=e141]: 日
+                - generic [ref=e142]:
+                  - button "1" [ref=e143] [cursor=pointer]
+                  - button "2" [ref=e144] [cursor=pointer]
+                  - button "3" [ref=e145] [cursor=pointer]
+                  - button "4" [ref=e146] [cursor=pointer]
+                  - button "5" [ref=e147] [cursor=pointer]
+                  - button "6" [ref=e148] [cursor=pointer]
+                  - button "7" [ref=e149] [cursor=pointer]
+                  - button "8" [ref=e150] [cursor=pointer]
+                  - button "9" [ref=e151] [cursor=pointer]
+                  - button "10" [ref=e152] [cursor=pointer]
+                  - button "11" [ref=e153] [cursor=pointer]
+                  - button "12" [ref=e154] [cursor=pointer]
+                  - button "13" [ref=e155] [cursor=pointer]
+                  - button "14" [ref=e156] [cursor=pointer]
+                  - button "15" [ref=e157] [cursor=pointer]
+                  - button "16" [ref=e158] [cursor=pointer]
+                  - button "17" [ref=e159] [cursor=pointer]
+                  - button "18" [ref=e160] [cursor=pointer]
+                  - button "19" [ref=e161] [cursor=pointer]
+                  - button "20" [ref=e162] [cursor=pointer]
+                  - button "21" [ref=e163] [cursor=pointer]
+                  - button "22" [ref=e164] [cursor=pointer]
+                  - button "23" [ref=e165] [cursor=pointer]
+                  - button "24" [ref=e166] [cursor=pointer]
+                  - button "25" [ref=e167] [cursor=pointer]
+                  - button "26" [ref=e168] [cursor=pointer]
+                  - button "27" [ref=e169] [cursor=pointer]
+                  - button "28" [ref=e170] [cursor=pointer]
+                  - button "29" [ref=e171] [cursor=pointer]
+                  - button "30" [ref=e172] [cursor=pointer]
+                  - button "1" [ref=e173] [cursor=pointer]
+                  - button "2" [ref=e174] [cursor=pointer]
+                  - button "3" [ref=e175] [cursor=pointer]
+                  - button "4" [ref=e176] [cursor=pointer]
+                  - button "5" [ref=e177] [cursor=pointer]
+                  - button "6" [ref=e178] [cursor=pointer]
+                  - button "7" [ref=e179] [cursor=pointer]
+                  - button "8" [ref=e180] [cursor=pointer]
+                  - button "9" [ref=e181] [cursor=pointer]
+                  - button "10" [ref=e182] [cursor=pointer]
+                  - button "11" [ref=e183] [cursor=pointer]
+                  - button "12" [ref=e184] [cursor=pointer]
+            - generic [ref=e185]:
+              - generic [ref=e186]:
+                - text: 开始日期
+                - textbox "开始日期" [ref=e187]: 2026-05-18
+              - generic [ref=e188]:
+                - text: 结束日期
+                - textbox "结束日期" [ref=e189]: 2026-05-24
+            - generic [ref=e190]:
+              - button "本周" [ref=e191] [cursor=pointer]
+              - button "上一完整周" [ref=e192] [cursor=pointer]
+              - button "本月" [ref=e193] [cursor=pointer]
+              - button "本季度" [ref=e194] [cursor=pointer]
+            - generic [ref=e195]: 点击日历任意一天自动选中完整自然周（周一至周日）。悬停预选整周范围。
+            - generic [ref=e196]:
+              - button "清空为默认" [ref=e197] [cursor=pointer]
+              - button "取消" [ref=e198] [cursor=pointer]
+              - button "应用" [ref=e199] [cursor=pointer]
+        - button "内容批次周期 2026-05-01 — 2026-05-24" [ref=e201] [cursor=pointer]:
+          - generic [ref=e202]: 内容批次周期
+          - generic [ref=e203]: 2026-05-01 — 2026-05-24
+        - button "导入 Excel" [ref=e17] [cursor=pointer]
+        - button "恢复内置" [ref=e18] [cursor=pointer]
+        - button "返回顶部" [ref=e19] [cursor=pointer]
+      - generic [ref=e204]:
+        - generic [ref=e205]: 复盘周期 2026-05-18 ~ 2026-05-24
+        - generic [ref=e206]: 批次周期 2026-05-01 ~ 2026-05-24
+        - generic [ref=e207]: 内置数据 · 2,532帖
+        - generic [ref=e208]: AI草稿 · 2026-05-27
+        - radiogroup "版本切换" [ref=e209]:
+          - radio "工作版" [checked] [ref=e210] [cursor=pointer]
+          - radio "发布版" [ref=e211] [cursor=pointer]
+    - main [ref=e212]:
+      - generic [ref=e213]:
+        - generic [ref=e214]:
+          - generic [ref=e215]:
+            - heading "本期概览" [level=3] [ref=e216]
+            - paragraph [ref=e217]: 所有指标来自当前复盘周期。
+          - generic [ref=e218]: 本机草稿
+        - generic [ref=e219]:
+          - article [ref=e220]:
+            - generic [ref=e221]: 样本帖子数
+            - generic [ref=e222]: 2,532
+            - generic [ref=e223]: 内容批次周期内发布
+          - article [ref=e224]:
+            - generic [ref=e225]: 本期曝光
+            - generic [ref=e226]: 3721.6万
+            - generic [ref=e227]: 较前期 +138.2%
+          - article [ref=e228]:
+            - generic [ref=e229]: 本期互动
+            - generic [ref=e230]: 158.6万
+            - generic [ref=e231]: 较前期 +260.2%
+          - article [ref=e232]:
+            - generic [ref=e233]: 互动率
+            - generic [ref=e234]: 4.3%
+            - generic [ref=e235]: 较前期 +1.4 pct
+      - generic [ref=e236]:
+        - generic [ref=e238]:
+          - heading "重点发现" [level=3] [ref=e239]
+          - paragraph [ref=e240]: 这里只展示可被数据验证的事实型发现，发散判断进入 AI 草稿和负责人确认。
+        - generic [ref=e241]:
+          - generic [ref=e242]:
+            - strong [ref=e243]: 渠道结构
+            - paragraph [ref=e244]: 曝光优先看 Instagram，贡献 40.4% 曝光；互动优先看 TikTok，贡献 55.0% 互动。这里是程序聚合事实，不解释原因。
+          - generic [ref=e245]:
+            - strong [ref=e246]: Top 内容边界
+            - paragraph [ref=e247]: Top5 帖子曝光占比 17.1%。低于 30%，只能说明 Top 内容具备复盘价值，不能写成 Top 内容带动整体。
+          - generic [ref=e248]:
+            - strong [ref=e249]: 社媒与 KOL 的复盘入口
+            - paragraph [ref=e250]: 社媒 Top 来源：Facebook；KOL Top 来源：TikTok。进入各渠道页查看 Top 帖、生命周期和负责人总结。
+          - generic [ref=e251]:
+            - strong [ref=e252]: 数据质量边界
+            - paragraph [ref=e253]: 当前为内置样例数据，只能演示界面和流程；正式结论需先导入本周 Excel。
+          - generic [ref=e254]:
+            - strong [ref=e255]: 项目维度
+            - paragraph [ref=e256]: 项目维度 Top 为 未标记项目，曝光 3721.6万，互动 158.6万，样本 2,532 帖。项目维度只做聚合排序，不自动解释项目效果。
+          - generic [ref=e257]:
+            - strong [ref=e258]: 漏斗结构
+            - paragraph [ref=e259]: 非社群漏斗 Top 为 未标记漏斗层级，曝光占比 100.0%，互动率 4.3%。该结构只说明内容分布和表现入口，不代表转化效果。
+      - generic [ref=e260]:
+        - generic [ref=e261]:
+          - generic [ref=e262]:
+            - heading "项目表现对比" [level=3] [ref=e263]
+            - paragraph [ref=e264]: 按项目查看曝光体量与贡献占比（Top 8）。
+          - generic [ref=e265]: 程序事实
+        - generic [ref=e270]: 3721.6万 · 100.0%
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - generic [ref=e273]:
+            - heading "营销漏斗分布" [level=3] [ref=e274]
+            - paragraph [ref=e275]: 按漏斗层级查看曝光、曝光占比与互动效率。
+          - generic [ref=e276]: 程序事实
+        - generic [ref=e281]: 3721.6万 · 100.0% · 互动率 4.3%
+      - generic [ref=e282]:
+        - generic [ref=e283]:
+          - generic [ref=e284]:
+            - heading "AI 深层思考草稿" [level=3] [ref=e285]
+            - paragraph [ref=e286]: 这里不重复程序能算出的事实，只放假设、原因方向和负责人待确认问题。
+          - generic [ref=e287]: AI草稿
+        - generic [ref=e288]:
+          - article [ref=e289]:
+            - generic [ref=e290]: AI 草稿
+            - heading "本期更适合按曝光入口和互动入口分开复盘" [level=4] [ref=e291]
+            - paragraph [ref=e292]: 【推断】本期最值得负责人判断的不是“哪条内容带动整体”，而是 Instagram/Facebook 承担曝光入口、TikTok 承担互动入口这一分工是否由内容结构造成；Top 内容只作为人工复盘样本，不写成整体带动原因。
+            - paragraph [ref=e293]: 请分别查看 Instagram/Facebook 高曝光样本和 TikTok 高互动样本，确认哪些内容结构可能解释“高点赞、低评论、次高收藏”的互动形态。
+          - article [ref=e294]:
+            - generic [ref=e295]: AI 草稿
+            - heading "最终口径深度取决于 Top 样本字段补齐" [level=4] [ref=e296]
+            - paragraph [ref=e297]: 【数据直接支撑】当前数据足够支撑渠道结构、Top 样本入口和数据质量提示；【数据不足】不够支撑“内容为什么有效”和“负责人贡献归因”的最终口径。优先补齐社媒 Top10、KOL Top10、社群 Top5 即可，不需要先全量补齐。
+            - paragraph [ref=e298]: 请确认本周最终汇报是否优先补齐社媒 Top10、KOL Top10、社群 Top5 的 owner、link 和负责人定性总结。
+      - generic [ref=e299]:
+        - generic [ref=e301]:
+          - heading "分渠道摘要" [level=3] [ref=e302]
+          - paragraph [ref=e303]: 用于管理层快速定位每个渠道当前最应该复盘的地方。
+        - generic [ref=e304]:
+          - article [ref=e305]:
+            - strong [ref=e306]: 社群
+            - paragraph [ref=e307]: 本期互动 339，样本 31 帖。
+            - paragraph [ref=e308]: Top来源：facebook；Top内容：facebook 内容。
+          - article [ref=e309]:
+            - strong [ref=e310]: 社媒
+            - paragraph [ref=e311]: 本期曝光 2653.2万，样本 2,291 帖。
+            - paragraph [ref=e312]: Top来源：Facebook；Top内容：facebook 内容。
+          - article [ref=e313]:
+            - strong [ref=e314]: KOL
+            - paragraph [ref=e315]: 本期曝光 1068.4万，样本 210 帖。
+            - paragraph [ref=e316]: Top来源：TikTok；Top内容：2026母亲节礼盒 · 开箱;口播。
+      - generic [ref=e317]:
+        - generic [ref=e318]:
+          - generic [ref=e319]:
+            - heading "长期经验" [level=3] [ref=e320]
+            - paragraph [ref=e321]: 只展示已经跨周验证并确认加入的经验；后续被数据连续反证会回到判断阶段。
+          - generic [ref=e322]: 待验证
+        - generic [ref=e323]: 长期假设达到验证周期并由负责人确认后，会沉淀在这里。
+      - generic [ref=e324]:
+        - generic [ref=e325]:
+          - generic [ref=e326]:
+            - heading "复用经验与避雷区" [level=3] [ref=e327]
+            - paragraph [ref=e328]: 长期保留，不随重新导入覆盖；用于沉淀业务经验。
+          - generic [ref=e329]: 本机长期保存
+        - generic [ref=e330]:
+          - article [ref=e331]:
+            - heading "社群" [level=4] [ref=e332]
+            - generic [ref=e333]:
+              - text: 可复用经验
+              - textbox "可复用经验" [ref=e334]:
+                - /placeholder: 沉淀可以复用的内容形式、话题、协作方式。
+            - generic [ref=e335]:
+              - text: 避雷区
+              - textbox "避雷区" [ref=e336]:
+                - /placeholder: 记录不建议继续复制的问题、口径风险或执行注意事项。
+          - article [ref=e337]:
+            - heading "社媒" [level=4] [ref=e338]
+            - generic [ref=e339]:
+              - text: 可复用经验
+              - textbox "可复用经验" [ref=e340]:
+                - /placeholder: 沉淀可以复用的内容形式、话题、协作方式。
+            - generic [ref=e341]:
+              - text: 避雷区
+              - textbox "避雷区" [ref=e342]:
+                - /placeholder: 记录不建议继续复制的问题、口径风险或执行注意事项。
+          - article [ref=e343]:
+            - heading "KOL" [level=4] [ref=e344]
+            - generic [ref=e345]:
+              - text: 可复用经验
+              - textbox "可复用经验" [ref=e346]:
+                - /placeholder: 沉淀可以复用的内容形式、话题、协作方式。
+            - generic [ref=e347]:
+              - text: 避雷区
+              - textbox "避雷区" [ref=e348]:
+                - /placeholder: 记录不建议继续复制的问题、口径风险或执行注意事项。
+          - article [ref=e349]:
+            - heading "站外数据" [level=4] [ref=e350]
+            - generic [ref=e351]:
+              - text: 可复用经验
+              - textbox "可复用经验" [ref=e352]:
+                - /placeholder: 沉淀可以复用的内容形式、话题、协作方式。
+            - generic [ref=e353]:
+              - text: 避雷区
+              - textbox "避雷区" [ref=e354]:
+                - /placeholder: 记录不建议继续复制的问题、口径风险或执行注意事项。
